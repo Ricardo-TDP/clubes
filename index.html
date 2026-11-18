@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Padel Atlas LATAM · 108 clubes · 8 países</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800;900&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#070D1A;--s1:#0F1B30;--s2:#15243D;--s3:#1B2E4E;--ln:rgba(148,180,255,.15);--ln2:rgba(148,180,255,.28);--ink:#EAF2FF;--dim:#9FB0CC;--faint:#8296B6;--ball:#D9F542;--ball2:#8FE86B;--court:#2DD4BF;--cobalt:#4D8DFF;--ok:#3DDC97;--warn:#FFC53D;--bad:#FF5A6E;--info:#38BDF8;--ig:#FF7BC0;--wa:#4ADE80;--co:#FFC53D;--sv:#4D8DFF;--ni:#38BDF8;--gt:#2DD4BF;--do:#FF5A6E;--ec:#FF9838;--pe:#FF3DA6;--bo:#4ADE80;--disp:'Archivo','Arial Black',system-ui,sans-serif;--body:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',Consolas,monospace;--top:62px}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ink);font:400 14px/1.5 var(--body);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body.lock{overflow:hidden}
+[hidden]{display:none!important}
+a{color:var(--court)}
+button{font-family:inherit;cursor:pointer}
+::selection{background:rgba(217,245,66,.3)}
+:focus-visible{outline:2px solid var(--ball);outline-offset:2px;border-radius:6px}
+mark{background:none;color:var(--ball);border-bottom:2px solid rgba(217,245,66,.55);font-weight:700}
+*{scrollbar-width:thin;scrollbar-color:#2A3E63 #0B1526}
+::-webkit-scrollbar{width:10px;height:10px}
+::-webkit-scrollbar-track{background:#0B1526;border-radius:8px}
+::-webkit-scrollbar-thumb{background:linear-gradient(180deg,#2A3E63,#223352);border-radius:8px;border:2px solid #0B1526}
+::-webkit-scrollbar-thumb:hover{background:linear-gradient(180deg,var(--court),#1E8F82)}
+.bg{position:fixed;inset:0;z-index:-2;background:radial-gradient(1100px 640px at 86% -12%,rgba(45,212,191,.11),transparent 60%),radial-gradient(900px 600px at -12% 28%,rgba(77,141,255,.11),transparent 60%),linear-gradient(180deg,#070D1A,#081020 45%,#070D1A)}
+.aur{position:absolute;border-radius:50%;filter:blur(88px);opacity:.5}
+.a1{width:42vw;height:42vw;left:-12vw;top:-14vw;background:radial-gradient(circle,rgba(45,212,191,.2),transparent 65%);animation:d1 44s ease-in-out infinite alternate}
+.a2{width:36vw;height:36vw;right:-10vw;top:4vh;background:radial-gradient(circle,rgba(77,141,255,.18),transparent 65%);animation:d2 54s ease-in-out infinite alternate}
+.a3{width:28vw;height:28vw;left:34vw;bottom:-14vw;background:radial-gradient(circle,rgba(255,61,166,.1),transparent 65%);animation:d1 62s ease-in-out infinite alternate-reverse}
+@keyframes d1{to{transform:translate(6vw,4vh) scale(1.12)}}
+@keyframes d2{to{transform:translate(-5vw,6vh) scale(.94)}}
+.grain{position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.05;mix-blend-mode:soft-light;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E")}
+.ic{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.fl{width:19px;height:13px;flex:none}
+#top{position:fixed;inset:0 0 auto;height:var(--top);z-index:40;display:flex;align-items:center;gap:14px;padding:0 18px;background:rgba(7,13,26,.86);backdrop-filter:blur(14px);border-bottom:1px solid var(--ln);transition:box-shadow .3s}
+#top.sc{box-shadow:0 12px 32px -14px rgba(0,0,0,.75)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);flex:none}
+.mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--ball),var(--court));display:grid;place-items:center;color:#0A1220}
+.mark .ic{width:19px;height:19px;stroke-width:2}
+.brand:hover .mark .ic{animation:spin .8s ease}
+@keyframes spin{to{transform:rotate(360deg)}}
+.bt b{font:800 14.5px var(--disp);letter-spacing:.07em;display:block;line-height:1.1}
+.bt b i{font-style:normal;color:var(--ball)}
+.bt small{font:500 9px var(--mono);color:var(--faint);letter-spacing:.09em;text-transform:uppercase}
+.nav{display:flex;gap:3px}
+.nav a{font:600 12.5px var(--body);color:var(--dim);text-decoration:none;padding:6px 11px;border-radius:8px}
+.nav a:hover{color:var(--ink);background:rgba(148,180,255,.08)}
+.nav a.on{color:var(--ball);background:rgba(217,245,66,.1)}
+#load{display:inline-flex;align-items:center;gap:6px;font:700 10px var(--mono);color:var(--ok);border:1px solid rgba(61,220,151,.35);background:rgba(61,220,151,.08);border-radius:20px;padding:4px 10px;white-space:nowrap}
+#load .dot{width:6px;height:6px;border-radius:50%;background:var(--ok);box-shadow:0 0 8px var(--ok);animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.35}}
+.sb{position:relative;flex:1;max-width:380px;margin-left:auto}
+.sb>.ic{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:var(--faint)}
+#q{width:100%;height:36px;padding:0 54px 0 34px;border-radius:10px;border:1px solid var(--ln);background:rgba(15,27,48,.9);color:var(--ink);font:500 13px var(--body)}
+#q:focus{border-color:rgba(217,245,66,.5);box-shadow:0 0 0 3px rgba(217,245,66,.1);outline:none}
+.sb kbd{position:absolute;right:9px;top:50%;transform:translateY(-50%);font:600 10px var(--mono);color:var(--faint);border:1px solid var(--ln2);border-radius:5px;padding:1px 5px}
+#qClear{position:absolute;right:30px;top:50%;transform:translateY(-50%);width:20px;height:20px;border:0;border-radius:5px;background:var(--s3);color:var(--dim);display:grid;place-items:center}
+#qClear .ic{width:10px;height:10px}
+.acts{display:flex;gap:8px;align-items:center}
+.btn{display:inline-flex;align-items:center;gap:7px;font:600 13px var(--body);padding:8px 14px;border-radius:10px;border:1px solid var(--ln2);background:var(--s2);color:var(--ink);text-decoration:none;transition:.16s;white-space:nowrap}
+.btn:hover{transform:translateY(-1px);background:var(--s3);border-color:rgba(148,180,255,.42)}
+.btn.p{background:linear-gradient(100deg,var(--ball),var(--ball2));color:#0A1220;border-color:transparent;box-shadow:0 8px 24px -10px rgba(217,245,66,.55);position:relative;overflow:hidden}
+.btn.p:hover{background:linear-gradient(100deg,#E4FF54,#9BF27B)}
+.btn.p::after{content:'';position:absolute;top:0;left:-70%;width:45%;height:100%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);transition:left .5s}
+.btn.p:hover::after{left:130%}
+.btn.d{color:var(--bad);border-color:rgba(255,90,110,.35)}
+.btn.d:hover{background:rgba(255,90,110,.12)}
+.btn.sm{padding:6px 10px;font-size:12px;border-radius:9px}
+.ib{width:30px;height:30px;border-radius:8px;border:1px solid transparent;background:none;color:var(--dim);display:inline-grid;place-items:center;transition:.15s;text-decoration:none}
+.ib:hover{color:var(--ink);background:rgba(148,180,255,.1);border-color:var(--ln)}
+.ib.d:hover{color:var(--bad);background:rgba(255,90,110,.12)}
+.ew{position:relative}
+#expMenu{position:absolute;right:0;top:calc(100% + 8px);width:262px;background:var(--s2);border:1px solid var(--ln2);border-radius:12px;box-shadow:0 18px 50px -18px rgba(0,0,0,.7);padding:6px;z-index:50;animation:pop .18s ease}
+@keyframes pop{from{opacity:0;transform:translateY(-6px) scale(.97)}}
+#expMenu button{display:flex;width:100%;align-items:center;gap:9px;padding:9px 10px;border:0;background:none;color:var(--ink);border-radius:8px;font:500 13px var(--body);text-align:left}
+#expMenu button:hover:not(:disabled){background:rgba(217,245,66,.09)}
+#expMenu button:disabled{opacity:.4;cursor:not-allowed}
+#expMenu .ic{color:var(--court)}
+#expMenu small{margin-left:auto;font:500 10px var(--mono);color:var(--faint)}
+#expMenu hr{border:0;border-top:1px solid var(--ln);margin:5px 8px}
+main{padding-top:var(--top)}
+section,footer{scroll-margin-top:calc(var(--top) + 14px)}
+.wrap{max-width:1440px;margin:0 auto;padding:0 18px}
+.hero{position:relative;padding:34px 0 20px;overflow:hidden}
+.hg{display:grid;grid-template-columns:1.1fr .9fr;gap:34px;align-items:center;position:relative;z-index:1}
+.eye{font:700 10px var(--mono);letter-spacing:.22em;color:var(--ball);text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:11px}
+.eye::before{content:'';width:24px;height:2px;background:linear-gradient(90deg,var(--ball),var(--court))}
+h1{font:900 clamp(27px,3.3vw,44px)/1.05 var(--disp);text-transform:uppercase;letter-spacing:-.015em}
+h1 em{font-style:normal;background:linear-gradient(95deg,var(--ball) 5%,var(--court) 45%,var(--cobalt) 95%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{margin:12px 0 14px;color:var(--dim);font-size:13.5px;max-width:560px}
+.sub b{color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:15px}
+.mc{display:inline-flex;align-items:center;gap:6px;font:600 10.5px var(--mono);border:1px solid var(--ln2);border-radius:20px;padding:4px 10px;color:var(--dim);background:rgba(15,27,48,.7)}
+.mc b{color:var(--ink)}.mc .ic{width:12px;height:12px}
+.mc.ok{border-color:rgba(61,220,151,.4);color:var(--ok)}.mc.ok b{color:var(--ok)}
+.mc.wa{border-color:rgba(255,197,61,.4);color:var(--warn)}.mc.wa b{color:var(--warn)}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+#court{position:absolute;right:-60px;top:-26px;width:500px;opacity:.42;z-index:0;pointer-events:none;transform:rotate(-8deg)}
+.score{background:linear-gradient(160deg,rgba(21,36,61,.94),rgba(15,27,48,.94));border:1px solid var(--ln2);border-radius:16px;padding:18px 20px 16px;box-shadow:0 18px 50px -18px rgba(0,0,0,.65);position:relative;overflow:hidden}
+.score::before{content:'';position:absolute;inset:0;background:radial-gradient(380px 150px at 90% -20%,rgba(217,245,66,.13),transparent 60%)}
+.st{display:flex;justify-content:space-between;align-items:baseline;position:relative}
+.sl{font:700 9.5px var(--mono);letter-spacing:.2em;color:var(--faint);text-transform:uppercase}
+.sd{font:500 9.5px var(--mono);color:var(--court)}
+.big{display:flex;align-items:baseline;gap:11px;margin:4px 0 11px;position:relative}
+#bigTotal{font:900 54px/1 var(--disp);color:var(--ball);text-shadow:0 0 32px rgba(217,245,66,.4);font-variant-numeric:tabular-nums}
+.big span{font:600 11.5px var(--body);color:var(--dim)}
+#dist{display:flex;height:11px;border-radius:6px;overflow:hidden;background:#0B1526;border:1px solid var(--ln);position:relative}
+#dist button{border:0;height:100%;width:0;padding:0;transition:width .9s cubic-bezier(.22,.9,.3,1)}
+#dist button:hover{filter:brightness(1.3)}
+.leg{display:grid;grid-template-columns:repeat(4,1fr);gap:3px 8px;margin:8px 0 10px;position:relative}
+.leg span{display:flex;align-items:center;gap:5px;font:500 9px var(--mono);color:var(--dim);text-transform:uppercase;white-space:nowrap}
+.leg i{width:7px;height:7px;border-radius:2px;flex:none}
+.pv{position:relative;margin-bottom:10px}
+.pvl{font:700 8.5px var(--mono);letter-spacing:.18em;color:var(--faint);text-transform:uppercase;margin-bottom:4px}
+#prov{display:flex;height:7px;border-radius:4px;overflow:hidden;background:#0B1526;border:1px solid var(--ln)}
+#prov i{height:100%;transition:width .9s ease}
+.pvl2{display:flex;gap:11px;margin-top:4px;flex-wrap:wrap}
+.pvl2 span{display:flex;align-items:center;gap:5px;font:500 9px var(--mono);color:var(--dim)}
+.pvl2 i{width:6px;height:6px;border-radius:2px}.pvl2 b{color:var(--ink)}
+.minis{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;position:relative}
+.mini{background:rgba(7,13,26,.55);border:1px solid var(--ln);border-radius:10px;padding:7px 9px}
+.mini b{display:block;font:700 19px var(--mono);font-variant-numeric:tabular-nums}
+.mini small{font:600 8px var(--mono);letter-spacing:.08em;color:var(--faint);text-transform:uppercase}
+.m1 b{color:var(--cobalt)}.m2 b{color:var(--wa)}.m3 b{color:var(--ig)}.m4 b{color:var(--ok)}
+.rise{opacity:0;transform:translateY(14px)}
+body.ready .rise{animation:rise .55s cubic-bezier(.22,.9,.3,1) forwards;animation-delay:var(--d,0s)}
+@keyframes rise{to{opacity:1;transform:none}}
+.ws{display:grid;grid-template-columns:232px 1fr;gap:18px;align-items:start;padding-bottom:24px}
+#side{position:sticky;top:calc(var(--top) + 14px);max-height:calc(100vh - var(--top) - 28px);overflow-y:auto;background:linear-gradient(180deg,rgba(15,27,48,.92),rgba(11,21,38,.92));border:1px solid var(--ln);border-radius:14px;padding:14px 12px}
+.sh{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.sh b{font:800 11.5px var(--disp);letter-spacing:.12em;text-transform:uppercase;display:flex;gap:7px;align-items:center}
+.sh b .ic{color:var(--ball)}
+#sheetX{display:none}
+.fg{margin-bottom:13px}
+.fl2{font:700 9px var(--mono);letter-spacing:.18em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+.ci{display:block;width:100%;text-align:left;border:1px solid transparent;background:none;border-radius:9px;padding:6px 8px;margin-bottom:2px;color:var(--dim);transition:.15s}
+.ci:hover{background:rgba(148,180,255,.07);color:var(--ink)}
+.ci.on{background:rgba(217,245,66,.08);border-color:rgba(217,245,66,.3);color:var(--ink);box-shadow:inset 3px 0 0 var(--ball)}
+.cr{display:flex;align-items:center;gap:7px}
+.cr span{font:600 12px var(--body);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.cr b{font:700 10.5px var(--mono);color:var(--faint);background:rgba(7,13,26,.6);border:1px solid var(--ln);padding:1px 6px;border-radius:20px}
+.ci.on .cr b{color:var(--ball);border-color:rgba(217,245,66,.35)}
+.cb{height:3px;border-radius:3px;background:rgba(7,13,26,.7);margin:4px 1px 0;overflow:hidden}
+.cb i{display:block;height:100%;transition:width .6s ease}
+.ci.all{border-bottom:1px dashed var(--ln);border-radius:9px 9px 0 0;padding-bottom:8px;margin-bottom:5px}
+select,input[type=text],input[type=tel],textarea{width:100%;background:rgba(7,13,26,.65);border:1px solid var(--ln2);color:var(--ink);border-radius:9px;padding:7px 10px;font:500 12.5px var(--body)}
+select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%239FB0CC' stroke-width='2.4'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;padding-right:28px;cursor:pointer}
+select:focus,input:focus,textarea:focus{border-color:rgba(217,245,66,.5);box-shadow:0 0 0 3px rgba(217,245,66,.1);outline:none}
+.tg{display:flex;width:100%;align-items:center;gap:8px;border:1px solid var(--ln2);background:rgba(7,13,26,.65);color:var(--dim);border-radius:9px;padding:7px 10px;font:600 12px var(--body);transition:.15s}
+.tg .ic{width:14px;height:14px;color:var(--ok)}
+.tg:hover{color:var(--ink)}
+.tg i{margin-left:auto;width:15px;height:15px;border-radius:4px;border:1.5px solid var(--ln2);display:grid;place-items:center}
+.tg i .ic{width:9px;height:9px;opacity:0;color:#0A1220;stroke-width:3}
+.tg[aria-pressed=true]{color:var(--ink);border-color:rgba(217,245,66,.45);background:rgba(217,245,66,.07)}
+.tg[aria-pressed=true] i{background:var(--ball);border-color:var(--ball)}
+.tg[aria-pressed=true] i .ic{opacity:1}
+.ps{display:flex;width:100%;align-items:center;gap:8px;border:1px solid var(--ln);background:rgba(7,13,26,.5);color:var(--dim);border-radius:9px;padding:6px 9px;font:600 11.5px var(--body);margin-bottom:4px;transition:.15s;text-align:left}
+.ps .ic{width:13px;height:13px}
+.ps b{margin-left:auto;font:700 10px var(--mono);color:var(--faint);border:1px solid var(--ln);padding:1px 6px;border-radius:20px}
+.ps:hover{color:var(--ink);transform:translateX(2px);border-color:rgba(148,180,255,.4)}
+.ps.on{border-color:rgba(217,245,66,.45);background:rgba(217,245,66,.07);color:var(--ink)}
+.ps.on b{color:var(--ball)}
+.ps.r .ic{color:var(--ok)}.ps.w .ic{color:var(--wa)}.ps.i .ic{color:var(--ig)}.ps.n .ic,.ps.ph .ic,.ps.cf .ic{color:var(--warn)}.ps.at .ic{color:var(--cobalt)}
+.vi{display:flex;gap:5px;margin-bottom:4px}
+.vi>button:first-child{flex:1;display:flex;align-items:center;gap:7px;border:1px solid var(--ln);background:rgba(7,13,26,.5);color:var(--dim);border-radius:8px;padding:6px 9px;font:600 11.5px var(--body);min-width:0}
+.vi>button:first-child:hover{color:var(--ball);border-color:rgba(217,245,66,.35)}
+.vi span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vi .ib{width:25px;height:25px}
+#vsRow{display:flex;gap:5px;margin-top:6px}
+#vsRow .ib{border:1px solid var(--ln2);background:var(--s2)}
+.emp{font:500 10.5px var(--body);color:var(--faint);padding:2px}
+#reset{width:100%;justify-content:center}
+#rail{display:none;overflow-x:auto;padding:2px 2px 9px;gap:7px}
+#rail::-webkit-scrollbar{height:6px}
+.rc{display:inline-flex;align-items:center;gap:6px;border:1px solid var(--ln2);background:var(--s1);color:var(--dim);border-radius:20px;padding:6px 12px;font:600 11.5px var(--body);white-space:nowrap;flex:none}
+.rc b{font:700 10px var(--mono);color:var(--faint)}
+.rc.on{background:rgba(217,245,66,.1);border-color:rgba(217,245,66,.5);color:var(--ink)}
+.rc.on b{color:var(--ball)}
+.ct{min-width:0}
+#banner{display:flex;gap:10px;background:linear-gradient(100deg,rgba(56,189,248,.09),rgba(45,212,191,.06));border:1px solid rgba(56,189,248,.28);border-radius:11px;padding:10px 12px;margin-bottom:11px;font-size:12px;color:var(--dim)}
+#banner>.ic{color:var(--info);margin-top:2px}
+#banner b{color:var(--ink)}
+#banner .ib{margin-left:auto;flex:none;width:24px;height:24px}
+#boot{border-color:rgba(255,197,61,.45);background:rgba(255,197,61,.08)}
+#boot>.ic{color:var(--warn)}
+#tb{position:sticky;top:var(--top);z-index:8;background:rgba(7,13,26,.9);backdrop-filter:blur(10px);padding:9px 0;border-bottom:1px solid var(--ln)}
+.tb{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+#fBtn{display:none}
+#fBadge{background:var(--ball);color:#0A1220;font:700 9.5px var(--mono);border-radius:20px;padding:1px 6px}
+#count{font:700 12.5px var(--body)}
+#count b{color:var(--ball);font:700 15px var(--mono)}
+.pill{display:inline-flex;align-items:center;gap:5px;border-radius:20px;padding:4px 10px;font:700 10.5px var(--mono);border:1px solid;transition:.15s}
+#waP{border-color:rgba(74,222,128,.35);background:rgba(74,222,128,.07);color:var(--wa)}
+#waP:hover{background:rgba(74,222,128,.16)}
+#veP{border-color:rgba(61,220,151,.35);background:rgba(61,220,151,.06);color:var(--ok)}
+#veP.on{background:var(--ok);color:#0A1220}
+.pill .ic{width:12px;height:12px}
+.tbr{margin-left:auto;display:flex;align-items:center;gap:7px}
+#sort{width:auto;padding:6px 28px 6px 10px;font-size:11.5px}
+.seg{display:flex;border:1px solid var(--ln2);border-radius:8px;overflow:hidden}
+.seg button{width:31px;height:30px;border:0;background:none;color:var(--faint);display:grid;place-items:center}
+.seg button.on{background:rgba(217,245,66,.14);color:var(--ball)}
+#bulk{display:flex;align-items:center;gap:9px;flex-wrap:wrap;background:rgba(217,245,66,.08);border:1px solid rgba(217,245,66,.3);border-radius:10px;padding:7px 11px;margin-top:8px;animation:pop .2s}
+#bulk b{font:700 12.5px var(--mono);color:var(--ball)}
+#bulk small{color:var(--faint);font-size:10.5px}
+#bulk .sp{flex:1}
+#list{margin-top:12px}
+#tw{border:1px solid var(--ln);border-radius:14px;background:linear-gradient(180deg,rgba(15,27,48,.78),rgba(11,21,38,.78));overflow:auto;max-height:calc(100vh - 244px)}
+table{width:100%;min-width:900px;border-collapse:collapse}
+th{position:sticky;top:0;z-index:2;background:#13223C;font:700 9.5px var(--mono);letter-spacing:.13em;text-transform:uppercase;color:var(--faint);text-align:left;padding:10px 8px;box-shadow:0 1px 0 var(--ln2);white-space:nowrap;user-select:none}
+th.s{cursor:pointer}th.s:hover{color:var(--ink)}
+th .si{width:10px;height:10px;vertical-align:-1px;margin-left:3px;opacity:.5}
+th.on{color:var(--ball)}th.on .si{opacity:1}
+th.de .si{transform:scaleY(-1)}
+td{padding:9px 8px;border-bottom:1px solid var(--ln);font-size:12.5px;vertical-align:middle}
+body.compact td{padding:5px 8px}
+body.compact .csub{display:none}
+tbody tr{cursor:pointer;transition:background .15s}
+tbody tr:hover{background:rgba(77,141,255,.06);box-shadow:inset 3px 0 0 var(--cc)}
+tbody tr.sel{background:rgba(217,245,66,.06);box-shadow:inset 3px 0 0 var(--ball)}
+tbody tr.an{animation:rin .35s both;animation-delay:var(--d,0ms)}
+@keyframes rin{from{opacity:0;transform:translateY(6px)}}
+tr.flash,.card.flash{animation:fl 1.3s ease}
+@keyframes fl{0%{background:rgba(217,245,66,.3)}}
+.wc{width:32px}.wm{width:44px}.wa{width:64px;text-align:right;white-space:nowrap}
+.wa .ib{opacity:0;width:26px;height:26px}
+tr:hover .wa .ib,tr.sel .wa .ib{opacity:1}
+@media(hover:none){.wa .ib{opacity:1}}
+.cn{border:0;background:none;color:var(--ink);font:700 13px var(--body);text-align:left;padding:0;display:inline-flex;align-items:center;gap:5px;line-height:1.3}
+.cn:hover{color:var(--ball)}
+.vok{width:12px;height:12px;color:var(--ok)}
+.csub{display:flex;align-items:center;gap:5px;color:var(--faint);font-size:10px;margin-top:2px;flex-wrap:wrap}
+.csub .ic{width:10px;height:10px}
+.sc{display:inline-flex;align-items:center;font:700 8.5px var(--mono);letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--ln2);border-radius:11px;padding:1px 6px;color:var(--court);text-decoration:none}
+a.sc:hover{background:rgba(45,212,191,.12);border-color:var(--court)}
+.sc.csv{color:var(--ig);border-color:rgba(255,123,192,.35)}
+.sc.atlas,.sc.manual{color:var(--cobalt);border-color:rgba(77,141,255,.35)}
+.sc.gsearch{color:var(--faint)}
+.plus{font:700 8px var(--mono);color:var(--ig)}
+.cty{display:inline-flex;align-items:center;gap:6px;border:0;background:none;color:var(--dim);font:600 11.5px var(--body);padding:0;white-space:nowrap}
+.cty:hover{color:var(--ink);text-decoration:underline;text-underline-offset:3px}
+.rl{border:0;background:none;color:var(--dim);font:500 12px var(--body);padding:0;border-bottom:1px dashed transparent;text-align:left}
+.rl:hover{color:var(--court);border-bottom-color:var(--court)}
+.lk{display:inline-flex;align-items:center;gap:5px;text-decoration:none;font:600 12px var(--body);max-width:155px;border-bottom:1px dashed transparent}
+.lk span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.lk:hover{border-bottom-color:currentColor}
+.lk .ic{width:13px;height:13px}
+.lk.ig{color:var(--ig)}
+.lk.wa{color:var(--wa);font-family:var(--mono);font-size:11px}
+.lk.se{color:var(--faint);font-weight:500;font-size:11px}
+.lk.se:hover{color:var(--info)}
+.lk.se .ic{width:11px;height:11px}
+.mb{color:var(--court)}
+.mb:hover{color:var(--ball);background:rgba(217,245,66,.1)}
+.rd{display:inline-flex;align-items:center;gap:5px;font:700 9.5px var(--mono);border-radius:20px;padding:3px 8px;white-space:nowrap;border:1px solid}
+.rd::before{content:'';width:5px;height:5px;border-radius:50%;background:currentColor;box-shadow:0 0 7px currentColor}
+.rd.listo{color:var(--ok);background:rgba(61,220,151,.1);border-color:rgba(61,220,151,.3)}
+.rd.wa{color:var(--wa);background:rgba(74,222,128,.07);border-color:rgba(74,222,128,.28)}
+.rd.ig{color:var(--ig);background:rgba(255,123,192,.07);border-color:rgba(255,123,192,.28)}
+.rd.none{color:var(--faint);background:rgba(130,150,182,.07);border-color:rgba(130,150,182,.28)}
+.fli{width:12px;height:12px;color:var(--warn);vertical-align:-2px;margin-left:4px}
+.cbx{display:inline-grid;place-items:center;cursor:pointer}
+.cbx input{position:absolute;opacity:0;width:0;height:0}
+.cbx span{width:16px;height:16px;border-radius:5px;border:1.5px solid var(--ln2);background:rgba(7,13,26,.6);display:grid;place-items:center;transition:.15s}
+.cbx span::after{content:'';width:8px;height:4px;border-left:2.2px solid #0A1220;border-bottom:2.2px solid #0A1220;transform:rotate(-45deg) scale(0);transition:.15s;margin-top:-2px}
+.cbx:hover span{border-color:var(--ball)}
+.cbx input:checked+span,.cbx input:indeterminate+span{background:var(--ball);border-color:var(--ball)}
+.cbx input:checked+span::after{transform:rotate(-45deg) scale(1)}
+.cbx input:indeterminate+span::after{width:7px;height:0;border-left:0;transform:none;margin:0}
+#cw{display:grid;grid-template-columns:repeat(auto-fill,minmax(292px,1fr));gap:12px}
+.card{background:linear-gradient(170deg,rgba(21,36,61,.88),rgba(15,27,48,.88));border:1px solid var(--ln);border-top:3px solid var(--cc);border-radius:14px;padding:13px 14px 10px;cursor:pointer;transition:.18s}
+.card:hover{transform:translateY(-3px);box-shadow:0 16px 34px -16px rgba(0,0,0,.6)}
+.card.sel{border-color:rgba(217,245,66,.5)}
+.card.an{animation:rin .35s both;animation-delay:var(--d,0ms)}
+.ctop{display:flex;align-items:center;gap:7px;margin-bottom:8px}
+.ctop .n{font:600 10.5px var(--body);color:var(--dim);display:flex;gap:5px;align-items:center}
+.ctop .rd{margin-left:auto}
+.card h3{font:700 15px/1.3 var(--body)}
+.card h3 button{border:0;background:none;color:var(--ink);font:inherit;text-align:left;padding:0;display:inline-flex;gap:5px;align-items:center}
+.card h3 button:hover{color:var(--ball)}
+.cloc{color:var(--faint);font-size:11px;margin:3px 0 4px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.cloc .ic{width:10px;height:10px}
+.caddr{color:var(--faint);font-size:10.5px;margin-bottom:8px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.csrc{display:flex;gap:5px;align-items:center;margin-bottom:9px;flex-wrap:wrap}
+.clinks{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:9px}
+.pl{display:inline-flex;align-items:center;gap:5px;font:600 11px var(--body);text-decoration:none;border:1px solid var(--ln2);border-radius:20px;padding:4px 10px;color:var(--dim);max-width:100%}
+.pl span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:140px}
+.pl .ic{width:12px;height:12px}
+.pl:hover{transform:translateY(-1px)}
+.pl.ig{color:var(--ig)}.pl.wa{color:var(--wa)}.pl.map{color:var(--court)}.pl.se{color:var(--faint)}
+.pl.ig:hover{border-color:var(--ig)}.pl.wa:hover{border-color:var(--wa)}.pl.map:hover{border-color:var(--court)}.pl.se:hover{color:var(--info);border-color:var(--info)}
+.cnote{display:flex;gap:5px;color:var(--warn);font-size:10.5px;margin-bottom:8px}
+.cnote .ic{width:10px;height:10px}
+.cnote span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--dim)}
+.cfoot{display:flex;align-items:center;gap:3px;border-top:1px dashed var(--ln);padding-top:8px}
+.cfoot small{color:var(--faint);font:500 10px var(--mono);margin-left:3px}
+.cfoot .sp{flex:1}
+#empty{text-align:center;padding:48px 18px;border:1px dashed var(--ln2);border-radius:14px;background:rgba(15,27,48,.5)}
+#empty .eb{width:50px;height:50px;color:var(--ball);stroke-width:1.5;animation:bo 1.4s cubic-bezier(.35,0,.65,1) infinite alternate;filter:drop-shadow(0 0 16px rgba(217,245,66,.5))}
+@keyframes bo{from{transform:translateY(-8px)}to{transform:translateY(6px)}}
+#empty h3{font:800 17px var(--disp);text-transform:uppercase;margin:12px 0 4px}
+#empty p{color:var(--dim);font-size:12.5px;margin-bottom:15px}
+.scrim{position:fixed;inset:0;background:rgba(4,8,18,.62);backdrop-filter:blur(3px);opacity:0;pointer-events:none;transition:opacity .3s;z-index:48}
+.scrim.on{opacity:1;pointer-events:auto}
+#drawer{position:fixed;top:0;right:0;bottom:0;width:min(455px,100vw);background:var(--s1);border-left:1px solid var(--ln2);z-index:49;transform:translateX(103%);transition:transform .36s cubic-bezier(.22,.9,.26,1);display:flex;flex-direction:column}
+#drawer.on{transform:none}
+.dh{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid var(--ln)}
+.dh b{font:800 10.5px var(--disp);letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+#db{flex:1;overflow-y:auto;padding:0 18px 18px}
+.band{margin:0 -18px;padding:18px 18px 14px;border-bottom:1px solid var(--ln)}
+.dm{display:flex;align-items:center;gap:8px;margin-bottom:9px;flex-wrap:wrap}
+.dm .cm{display:flex;align-items:center;gap:6px;font:600 11.5px var(--body);color:var(--dim)}
+.dm .rd{margin-left:auto}
+.band h2{font:800 20px/1.25 var(--disp)}
+.dloc{display:flex;align-items:center;gap:6px;color:var(--dim);font-size:12px;margin-top:6px}
+.dloc .ic{width:12px;height:12px;color:var(--court)}
+.daddr{color:var(--faint);font-size:11px;margin-top:3px;padding-left:18px}
+.dsrc{display:flex;gap:5px;margin-top:10px;flex-wrap:wrap}
+.dsec{font:700 9px var(--mono);letter-spacing:.2em;text-transform:uppercase;color:var(--faint);margin:16px 0 8px}
+.dl{display:flex;align-items:center;gap:11px;padding:10px 12px;border:1px solid var(--ln2);border-radius:11px;background:rgba(7,13,26,.5);text-decoration:none;margin-bottom:7px;transition:.15s}
+.dl:hover{transform:translateX(3px);border-color:rgba(148,180,255,.42)}
+.dl>.ic{width:18px;height:18px}
+.dl.ig>.ic{color:var(--ig)}.dl.wa>.ic{color:var(--wa)}.dl.map>.ic{color:var(--court)}.dl.src>.ic{color:var(--cobalt)}
+.dl div{flex:1;min-width:0}
+.dl small{display:block;font:600 9px var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--faint)}
+.dl b{font:600 12.5px var(--body);color:var(--ink);display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dl.pend b{color:var(--info);font-weight:500}
+.dl .ext{width:12px;height:12px;color:var(--faint)}
+.wb{display:flex;gap:9px;border:1px solid rgba(255,197,61,.4);background:rgba(255,197,61,.07);border-radius:11px;padding:10px 12px;font-size:11.5px;color:var(--dim);margin-bottom:7px}
+.wb .ic{color:var(--warn);margin-top:1px}
+.wb b{color:var(--warn)}
+.wb code{font:600 10.5px var(--mono);color:var(--ink);background:rgba(7,13,26,.6);padding:1px 5px;border-radius:4px}
+.swr{display:flex;align-items:center;gap:11px;border:1px solid var(--ln2);border-radius:11px;padding:10px 12px;background:rgba(7,13,26,.5)}
+.swr div{flex:1}
+.swr b{font:600 12.5px var(--body);display:block}
+.swr small{color:var(--faint);font-size:10.5px}
+.sw{position:relative;width:40px;height:22px;flex:none;cursor:pointer}
+.sw input{position:absolute;opacity:0}
+.sw i{position:absolute;inset:0;border-radius:20px;background:var(--s3);border:1px solid var(--ln2);transition:.2s}
+.sw i::after{content:'';position:absolute;left:3px;top:2.5px;width:15px;height:15px;border-radius:50%;background:var(--dim);transition:.2s}
+.sw input:checked+i{background:rgba(61,220,151,.25);border-color:var(--ok)}
+.sw input:checked+i::after{left:20px;background:var(--ok);box-shadow:0 0 10px rgba(61,220,151,.7)}
+#dNote{min-height:66px;resize:vertical;font-size:12px}
+#nSaved{font:600 10px var(--mono);color:var(--ok);opacity:0;transition:.3s;margin-left:6px}
+#nSaved.on{opacity:1}
+#dTpl{min-height:104px;resize:vertical;font-size:11.5px;color:var(--dim)}
+.tpa{display:flex;gap:7px;margin-top:7px;flex-wrap:wrap}
+.df{display:flex;gap:8px;padding:12px 16px;border-top:1px solid var(--ln);background:rgba(11,21,38,.9)}
+.df .btn{flex:1;justify-content:center}
+.mw{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:16px;background:rgba(4,8,18,.66);backdrop-filter:blur(4px);animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.mc2{width:min(600px,100%);max-height:90vh;overflow-y:auto;background:linear-gradient(170deg,#15243D,#0F1B30);border:1px solid var(--ln2);border-radius:16px;box-shadow:0 18px 50px -18px rgba(0,0,0,.7);animation:mi .26s cubic-bezier(.22,.9,.3,1)}
+@keyframes mi{from{opacity:0;transform:translateY(12px) scale(.97)}}
+.mh{display:flex;align-items:center;justify-content:space-between;padding:16px 20px 0}
+.mh h2{font:800 16px var(--disp);text-transform:uppercase;letter-spacing:.05em;display:flex;gap:9px;align-items:center}
+.mh .ic{color:var(--ball);width:18px;height:18px}
+.mc2 form{padding:14px 20px 20px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.grid .full{grid-column:1/-1}
+.fd label{display:block;font:700 9.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:5px}
+.fd label em{color:var(--bad);font-style:normal}
+.fd .hint{font:500 10px var(--mono);color:var(--court);margin-top:4px;display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.fd .err{display:none;font:600 10.5px var(--body);color:var(--bad);margin-top:4px}
+.fd .err.on{display:block}
+.fd .bad{border-color:rgba(255,90,110,.6)}
+.mf{display:flex;gap:9px;justify-content:flex-end;margin-top:17px}
+#cf{z-index:70}
+#cf .mc2{width:min(410px,100%);padding:22px}
+#cf h2{font:800 15px var(--disp);text-transform:uppercase;display:flex;gap:9px;align-items:center;margin-bottom:9px}
+#cf h2 .ic{color:var(--warn);width:19px;height:19px}
+#cfText{color:var(--dim);font-size:12.5px;margin-bottom:17px}
+#toasts{position:fixed;left:18px;bottom:18px;z-index:80;display:flex;flex-direction:column;gap:8px;max-width:min(390px,calc(100vw - 36px))}
+.toast{display:flex;align-items:center;gap:10px;background:linear-gradient(160deg,#1B2E4E,#15243D);border:1px solid var(--ln2);border-radius:12px;padding:11px 13px;box-shadow:0 18px 50px -18px rgba(0,0,0,.7);position:relative;overflow:hidden;animation:ti .28s cubic-bezier(.22,.9,.3,1)}
+@keyframes ti{from{opacity:0;transform:translateY(10px) scale(.96)}}
+.toast.out{opacity:0;transform:translateY(8px);transition:.25s}
+.toast>.ic{width:16px;height:16px}
+.toast.success>.ic{color:var(--ok)}.toast.info>.ic{color:var(--info)}.toast.warn>.ic{color:var(--warn)}.toast.danger>.ic{color:var(--bad)}
+.toast p{font:500 12px var(--body);flex:1}
+.toast .act{border:1px solid rgba(217,245,66,.45);background:rgba(217,245,66,.1);color:var(--ball);font:700 11px var(--body);border-radius:7px;padding:4px 10px}
+.toast .tx{border:0;background:none;color:var(--faint);width:20px;height:20px;display:grid;place-items:center;border-radius:5px}
+.toast .tx .ic{width:10px;height:10px}
+.toast .pg{position:absolute;left:0;bottom:0;height:2.5px;background:linear-gradient(90deg,var(--ball),var(--court));width:100%;transform-origin:left;animation:pg 6s linear forwards}
+@keyframes pg{to{transform:scaleX(0)}}
+#notas{border-top:1px solid var(--ln);margin-top:30px;padding:26px 0 48px;background:linear-gradient(180deg,transparent,rgba(11,21,38,.7))}
+.fgr{display:grid;grid-template-columns:1.25fr .75fr;gap:32px}
+.fgr h3{font:800 12.5px var(--disp);letter-spacing:.14em;text-transform:uppercase;margin-bottom:10px;display:flex;gap:8px;align-items:center}
+.fgr h3 .ic{color:var(--court)}
+.fgr p{color:var(--dim);font-size:12px;margin-bottom:8px;max-width:640px}
+.fgr p b{color:var(--ink)}
+.stab{width:100%;min-width:0;border-collapse:collapse;margin:9px 0 12px;font-size:11.5px}
+.stab td{padding:5px 7px;border-bottom:1px solid var(--ln);color:var(--dim)}
+.stab td:first-child{font-weight:600;color:var(--ink);white-space:nowrap}
+.stab a{text-decoration:none}.stab a:hover{text-decoration:underline}
+.fside{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+#changes{font:600 10.5px var(--mono);color:var(--faint)}
+.cred{margin-top:22px;padding-top:14px;border-top:1px dashed var(--ln);display:flex;gap:8px;align-items:center;font:500 10.5px var(--mono);color:var(--faint);flex-wrap:wrap}
+.cred .ic{width:12px;height:12px;color:var(--ball)}
+.cred b{color:var(--dim)}
+@media(max-width:1200px){
+.ws{grid-template-columns:1fr}#rail{display:flex}#fBtn{display:inline-flex}
+#side{position:fixed;left:0;right:0;bottom:0;top:auto;z-index:46;max-height:78vh;border-radius:18px 18px 0 0;transform:translateY(105%);transition:transform .34s cubic-bezier(.22,.9,.26,1)}
+body.sheet #side{transform:none}#sheetX{display:inline-grid}#sheetScrim{z-index:45}
+#tw{display:none}.hg{grid-template-columns:1fr;gap:22px}#court{right:-150px;opacity:.26}#vt{display:none}
+}
+@media(max-width:760px){
+#top{padding:0 12px;gap:9px}.nav,.bt small,#load,.acts .lbl{display:none}.acts .btn{padding:8px 10px}
+.sb kbd{display:none}#q{padding-right:32px}#qClear{right:7px}.wrap{padding:0 12px}
+.hero{padding:24px 0 16px}.minis,.leg{grid-template-columns:repeat(2,1fr)}#bigTotal{font-size:44px}
+.grid,.fgr{grid-template-columns:1fr}#toasts{left:12px;right:12px;bottom:12px;max-width:none}.df{flex-wrap:wrap}#sort{max-width:140px}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.001s!important;transition-duration:.001s!important}html{scroll-behavior:auto}}
+@media print{#top,#side,#rail,#tb,.bg,.grain,#banner,.ctas,.wa,.wc,#toasts,.df{display:none!important}body{background:#fff;color:#111}.ws{grid-template-columns:1fr}#tw{max-height:none;overflow:visible;background:#fff;border-color:#ccc}table{min-width:0}th{position:static;background:#eee;color:#333}td{border-color:#ddd}.cn,.cty,.rl{color:#111}.score{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="i-racket" viewBox="0 0 24 24"><circle cx="12" cy="8.6" r="6.2"/><rect x="10.9" y="14.8" width="2.2" height="6.6" rx="1.1"/><circle cx="9.7" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="14.3" cy="7" r="1" fill="currentColor" stroke="none"/><circle cx="12" cy="10.6" r="1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-ball" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.6"/><path d="M5.2 5.6c3.6 2.8 3.6 10 0 12.8M18.8 5.6c-3.6 2.8-3.6 10 0 12.8"/></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.8-3.8"/></symbol>
+<symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+<symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3v11m0 0 4-4m-4 4-4-4M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></symbol>
+<symbol id="i-cd" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+<symbol id="i-ad" viewBox="0 0 24 24"><path d="M12 4v14m0 0 5-5m-5 5-5-5"/></symbol>
+<symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+<symbol id="i-ck" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11"/></symbol>
+<symbol id="i-ckc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.8 2.8L16.5 9"/></symbol>
+<symbol id="i-pen" viewBox="0 0 24 24"><path d="M4 20h4L19.5 8.5a2.1 2.1 0 0 0-3-3L5 17z"/><path d="m13.5 6.5 3 3"/></symbol>
+<symbol id="i-tr" viewBox="0 0 24 24"><path d="M4 7h16M9 7V5a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2m3 0-1 13a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1L6 7"/><path d="M10 11v6M14 11v6"/></symbol>
+<symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-5.3-7-11a7 7 0 0 1 14 0c0 5.7-7 11-7 11Z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+<symbol id="i-ig" viewBox="0 0 24 24"><rect x="3.5" y="3.5" width="17" height="17" rx="4.5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-wa" viewBox="0 0 24 24"><path d="M12 3.5a8.5 8.5 0 0 0-7.3 12.8L3.5 20.5l4.3-1.1A8.5 8.5 0 1 0 12 3.5Z"/><path d="M9 8.6c-.3 2.6 3.8 6.7 6.4 6.4l.6-1.5-2-1-.9.7c-.8-.4-1.9-1.5-2.3-2.3l.7-.9-1-2z" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-ext" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9"/><path d="M19 14v5a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h5"/></symbol>
+<symbol id="i-cp" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></symbol>
+<symbol id="i-fi" viewBox="0 0 24 24"><path d="M4 6h16M7 12h10M10 18h4"/></symbol>
+<symbol id="i-tb" viewBox="0 0 24 24"><rect x="3.5" y="4.5" width="17" height="15" rx="2"/><path d="M3.5 10h17M3.5 15h17M10 10v9.5"/></symbol>
+<symbol id="i-gr" viewBox="0 0 24 24"><rect x="4" y="4" width="7" height="7" rx="1.5"/><rect x="13" y="4" width="7" height="7" rx="1.5"/><rect x="4" y="13" width="7" height="7" rx="1.5"/><rect x="13" y="13" width="7" height="7" rx="1.5"/></symbol>
+<symbol id="i-bm" viewBox="0 0 24 24"><path d="M6 4h12v17l-6-4.5L6 21z"/></symbol>
+<symbol id="i-un" viewBox="0 0 24 24"><path d="M4 9h11a5 5 0 0 1 0 10h-4"/><path d="m8 5-4 4 4 4"/></symbol>
+<symbol id="i-in" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5"/><circle cx="12" cy="7.8" r="1" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-al" viewBox="0 0 24 24"><path d="M12 3.5 22 20H2Z"/><path d="M12 10v4.5"/><circle cx="12" cy="17.2" r=".9" fill="currentColor" stroke="none"/></symbol>
+<symbol id="i-so" viewBox="0 0 24 24"><path d="m8 9 4-4 4 4M8 15l4 4 4-4"/></symbol>
+<symbol id="i-de" viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h16M4 20h16"/></symbol>
+<symbol id="i-gl" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.8 2.6 4 5.6 4 9s-1.2 6.4-4 9c-2.8-2.6-4-5.6-4-9s1.2-6.4 4-9Z"/></symbol>
+<symbol id="i-se" viewBox="0 0 24 24"><path d="M21 3 10.5 13.5M21 3l-7 18-3.5-7.5L3 10z"/></symbol>
+<symbol id="i-mg" viewBox="0 0 24 24"><path d="M7 4v6a5 5 0 0 0 5 5h5M17 4v6a5 5 0 0 1-5 5"/><path d="m14 12 3 3-3 3"/></symbol>
+<symbol id="i-fl" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v4h4"/></symbol>
+<clipPath id="k-co"><rect width="20" height="14" rx="2.5"/></clipPath><clipPath id="k-sv"><rect width="20" height="14" rx="2.5"/></clipPath><clipPath id="k-ni"><rect width="20" height="14" rx="2.5"/></clipPath><clipPath id="k-gt"><rect width="20" height="14" rx="2.5"/></clipPath><clipPath id="k-do"><rect width="20" height="14" rx="2.5"/></clipPath><clipPath id="k-ec"><rect width="20" height="14" rx="2.5"/></clipPath><clipPath id="k-pe"><rect width="20" height="14" rx="2.5"/></clipPath><clipPath id="k-bo"><rect width="20" height="14" rx="2.5"/></clipPath>
+<symbol id="f-co" viewBox="0 0 20 14"><g clip-path="url(#k-co)"><rect width="20" height="7" fill="#FCD116"/><rect y="7" width="20" height="3.5" fill="#003893"/><rect y="10.5" width="20" height="3.5" fill="#CE1126"/></g><rect x=".5" y=".5" width="19" height="13" rx="2" fill="none" stroke="rgba(255,255,255,.28)"/></symbol>
+<symbol id="f-sv" viewBox="0 0 20 14"><g clip-path="url(#k-sv)"><rect width="20" height="14" fill="#0047AB"/><rect y="4.66" width="20" height="4.68" fill="#F4F7FB"/><path d="M10 5.6l1.5 2.6h-3z" fill="#1B7F4D"/><circle cx="10" cy="7.4" r=".7" fill="#FFC53D"/></g><rect x=".5" y=".5" width="19" height="13" rx="2" fill="none" stroke="rgba(255,255,255,.28)"/></symbol>
+<symbol id="f-ni" viewBox="0 0 20 14"><g clip-path="url(#k-ni)"><rect width="20" height="14" fill="#0067C6"/><rect y="4.66" width="20" height="4.68" fill="#F4F7FB"/><path d="M10 5.7l1.4 2.4h-2.8z" fill="none" stroke="#2E9BD6" stroke-width=".7"/></g><rect x=".5" y=".5" width="19" height="13" rx="2" fill="none" stroke="rgba(255,255,255,.28)"/></symbol>
+<symbol id="f-gt" viewBox="0 0 20 14"><g clip-path="url(#k-gt)"><rect width="20" height="14" fill="#4997D0"/><rect x="6.66" width="6.68" height="14" fill="#F4F7FB"/><circle cx="10" cy="7" r="1.3" fill="none" stroke="#3E8E5A" stroke-width=".7"/></g><rect x=".5" y=".5" width="19" height="13" rx="2" fill="none" stroke="rgba(255,255,255,.28)"/></symbol>
+<symbol id="f-do" viewBox="0 0 20 14"><g clip-path="url(#k-do)"><rect width="10" height="7" fill="#002D62"/><rect x="10" width="10" height="7" fill="#CE1126"/><rect y="7" width="10" height="7" fill="#CE1126"/><rect x="10" y="7" width="10" height="7" fill="#002D62"/><rect x="8.4" width="3.2" height="14" fill="#F4F7FB"/><rect y="5.4" width="20" height="3.2" fill="#F4F7FB"/><circle cx="10" cy="7" r="1" fill="#1B7F4D"/></g><rect x=".5" y=".5" width="19" height="13" rx="2" fill="none" stroke="rgba(255,255,255,.28)"/></symbol>
+<symbol id="f-ec" viewBox="0 0 20 14"><g clip-path="url(#k-ec)"><rect width="20" height="7" fill="#FFDD00"/><rect y="7" width="20" height="3.5" fill="#034EA2"/><rect y="10.5" width="20" height="3.5" fill="#ED1C24"/><circle cx="10" cy="7" r="1.5" fill="#6DA9D2"/></g><rect x=".5" y=".5" width="19" height="13" rx="2" fill="none" stroke="rgba(255,255,255,.28)"/></symbol>
+<symbol id="f-pe" viewBox="0 0 20 14"><g clip-path="url(#k-pe)"><rect width="20" height="14" fill="#D91023"/><rect x="6.66" width="6.68" height="14" fill="#F4F7FB"/></g><rect x=".5" y=".5" width="19" height="13" rx="2" fill="none" stroke="rgba(255,255,255,.28)"/></symbol>
+<symbol id="f-bo" viewBox="0 0 20 14"><g clip-path="url(#k-bo)"><rect width="20" height="4.66" fill="#D52B1E"/><rect y="4.66" width="20" height="4.68" fill="#F9E300"/><rect y="9.34" width="20" height="4.66" fill="#007934"/></g><rect x=".5" y=".5" width="19" height="13" rx="2" fill="none" stroke="rgba(255,255,255,.28)"/></symbol>
+</defs></svg>
+
+<div class="bg" aria-hidden="true"><div class="aur a1"></div><div class="aur a2"></div><div class="aur a3"></div></div>
+<div class="grain" aria-hidden="true"></div>
+
+<header id="top">
+<a class="brand" href="#resumen"><span class="mark"><svg class="ic"><use href="#i-racket"/></svg></span><span class="bt"><b>PADEL <i>ATLAS</i></b><small>LATAM · Tienda de Pádel</small></span></a>
+<nav class="nav"><a href="#resumen" data-spy="resumen" class="on">Resumen</a><a href="#clubes" data-spy="clubes">Clubes</a><a href="#notas" data-spy="notas">Fuentes</a></nav>
+<span id="load"><span class="dot"></span><span id="loadTxt">cargando…</span></span>
+<div class="sb"><svg class="ic"><use href="#i-search"/></svg><input id="q" type="text" placeholder="Buscar club, ciudad, dirección, @handle…" autocomplete="off" aria-label="Buscar"><button id="qClear" hidden aria-label="Limpiar"><svg class="ic"><use href="#i-x"/></svg></button><kbd>/</kbd></div>
+<div class="acts">
+<button class="btn" id="addBtn"><svg class="ic"><use href="#i-plus"/></svg><span class="lbl">Añadir</span></button>
+<div class="ew"><button class="btn p" id="expBtn" aria-expanded="false"><svg class="ic"><use href="#i-dl"/></svg><span class="lbl">Excel</span><svg class="ic" style="width:11px;height:11px"><use href="#i-cd"/></svg></button>
+<div id="expMenu" hidden>
+<button data-exp="view-xlsx"><svg class="ic"><use href="#i-dl"/></svg>Vista filtrada (.xlsx)<small id="nView"></small></button>
+<button data-exp="sel-xlsx" id="nSelBtn"><svg class="ic"><use href="#i-ckc"/></svg>Selección (.xlsx)<small id="nSel"></small></button>
+<button data-exp="all-xlsx"><svg class="ic"><use href="#i-gl"/></svg>Lista completa (.xlsx)<small id="nAll"></small></button>
+<hr><button data-exp="view-csv"><svg class="ic"><use href="#i-tb"/></svg>Vista filtrada (.csv)<small>UTF-8</small></button>
+</div></div></div>
+</header>
+
+<main>
+<section id="resumen" class="hero">
+<svg id="court" viewBox="0 0 440 240" aria-hidden="true"><rect x="14" y="14" width="412" height="212" rx="20" fill="none" stroke="rgba(45,212,191,.5)" stroke-width="2"/><rect x="30" y="30" width="380" height="180" rx="4" fill="rgba(45,212,191,.05)" stroke="rgba(45,212,191,.65)" stroke-width="1.6"/><line x1="220" y1="30" x2="220" y2="210" stroke="rgba(234,242,255,.75)" stroke-width="2.4" stroke-dasharray="7 5"/><line x1="88" y1="30" x2="88" y2="210" stroke="rgba(45,212,191,.6)" stroke-width="1.4"/><line x1="352" y1="30" x2="352" y2="210" stroke="rgba(45,212,191,.6)" stroke-width="1.4"/><line x1="88" y1="120" x2="352" y2="120" stroke="rgba(45,212,191,.6)" stroke-width="1.4"/><path d="M300 78Q340 40 384 66" fill="none" stroke="rgba(217,245,66,.5)" stroke-width="1.6" stroke-dasharray="3 6"/><circle cx="384" cy="66" r="9" fill="#D9F542"/><path d="M378.5 60.5c3 2.4 3 8.6 0 11M389.5 60.5c-3 2.4-3 8.6 0 11" stroke="#0A1220" stroke-width="1.2" fill="none"/></svg>
+<div class="wrap hg">
+<div>
+<p class="eye rise" style="--d:.04s">Tienda de Pádel · Panamá · Excel + CSV consolidados</p>
+<h1 class="rise" style="--d:.1s">Clubes de pádel,<br><em>en Latinoamérica</em></h1>
+<p class="sub rise" style="--d:.18s">Los <b>108 clubes</b> de Colombia, El Salvador, Nicaragua, Guatemala, Rep. Dominicana, Ecuador, Perú y Bolivia ya están cargados. Cada registro lleva su <b>fuente enlazada</b>, IG, WhatsApp y Maps. Filtra por campo, verifica y exporta.</p>
+<div class="chips rise" style="--d:.24s">
+<span class="mc"><svg class="ic"><use href="#i-fl"/></svg><b>88</b> Excel</span>
+<span class="mc"><svg class="ic"><use href="#i-fl"/></svg><b>16</b> CSV</span>
+<span class="mc ok"><svg class="ic"><use href="#i-mg"/></svg><b>9</b> duplicados fusionados</span>
+<span class="mc wa"><svg class="ic"><use href="#i-al"/></svg><b>11</b> WA placeholder · 7 descartados</span>
+<span class="mc wa"><svg class="ic"><use href="#i-al"/></svg><b>1</b> conflicto IG</span>
+<span class="mc"><svg class="ic"><use href="#i-gl"/></svg><b>+13</b> complementos Atlas</span>
+</div>
+<div class="ctas rise" style="--d:.3s"><a class="btn p" href="#clubes">Explorar clubes <svg class="ic"><use href="#i-ad"/></svg></a><button class="btn" id="queueBtn"><svg class="ic"><use href="#i-al"/></svg> Cola de verificación</button></div>
+</div>
+<div class="score rise" style="--d:.2s">
+<div class="st"><span class="sl">Clubes cargados</span><span class="sd">ACT · NOV 2026</span></div>
+<div class="big"><span id="bigTotal">0</span><span>registros únicos<br>en 8 mercados</span></div>
+<div id="dist"></div><div class="leg" id="leg"></div>
+<div class="pv"><div class="pvl">Procedencia</div><div id="prov"></div><div class="pvl2" id="provLeg"></div></div>
+<div class="minis"><div class="mini m1"><b>8</b><small>Países</small></div><div class="mini m2"><b id="kWA">0</b><small>WA válidos</small></div><div class="mini m3"><b id="kIG">0</b><small>Con IG</small></div><div class="mini m4"><b id="kReady">0</b><small>Listos</small></div></div>
+</div>
+</div>
+</section>
+
+<section id="clubes" class="wrap ws">
+<div id="rail"></div>
+<aside id="side">
+<div class="sh"><b><svg class="ic"><use href="#i-fi"/></svg> Filtros por campo</b><button class="ib" id="sheetX" aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+<div class="fg"><div class="fl2">País</div><div id="countries"></div></div>
+<div class="fg"><div class="fl2">Región / Departamento</div><select id="region"></select></div>
+<div class="fg"><div class="fl2">Fuente del registro</div><select id="src"></select></div>
+<div class="fg"><div class="fl2">Estado de contacto</div><select id="contact"><option value="all">Todos</option><option value="listo">Listos (WA + IG)</option><option value="wa">Solo WhatsApp</option><option value="ig">Solo Instagram</option><option value="none">Sin contacto directo</option><option value="ph">Placeholder WA descartado</option><option value="conf">Conflicto de datos</option></select></div>
+<div class="fg"><button class="tg" id="tgVer" aria-pressed="false"><svg class="ic"><use href="#i-ckc"/></svg>Solo verificados por mí<i><svg class="ic"><use href="#i-ck"/></svg></i></button></div>
+<div class="fg"><div class="fl2">Vistas rápidas</div><div id="presets"></div></div>
+<div class="fg"><div class="fl2">Vistas guardadas</div><div id="views"></div>
+<button class="btn sm" id="vsBtn" style="width:100%;justify-content:center"><svg class="ic" style="width:12px;height:12px"><use href="#i-bm"/></svg> Guardar vista actual</button>
+<div id="vsRow" hidden><input id="vName" type="text" placeholder="Nombre…" maxlength="26"><button class="ib" id="vOk" aria-label="Guardar"><svg class="ic"><use href="#i-ck"/></svg></button><button class="ib" id="vNo" aria-label="Cancelar"><svg class="ic"><use href="#i-x"/></svg></button></div></div>
+<button class="btn sm" id="reset"><svg class="ic" style="width:12px;height:12px"><use href="#i-un"/></svg> Limpiar filtros</button>
+</aside>
+<div class="ct">
+<div id="boot" hidden><svg class="ic"><use href="#i-al"/></svg><div><b>Modo seguro activado.</b> La vista interactiva no pudo iniciarse en este navegador; se muestra la tabla completa con todos los datos y enlaces. Puedes descargar el CSV igualmente.</div><button class="btn sm" id="bootCsv" style="margin-left:auto"><svg class="ic" style="width:12px;height:12px"><use href="#i-dl"/></svg> CSV</button></div>
+<div id="banner"><svg class="ic"><use href="#i-in"/></svg><div><b>Verificación cruzada:</b> cada club enlaza su fuente (Padelocal, padel.com.gt, FDP.do, LimaPadel, PadelMesh o tu CSV). Se detectaron <b>11 WhatsApp placeholder</b> en el CSV: 4 reemplazados por el número real del Excel y 7 descartados con búsqueda directa. <b>La Pala</b> tiene dos handles en conflicto (ambos enlazados). Los 13 complementos «Atlas» y los registros sin contacto forman la cola de verificación: ábrelos, confírmalos y márcalos ✓.</div><button class="ib" id="bannerX" aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+<div id="tb"><div class="tb">
+<button class="btn sm" id="fBtn"><svg class="ic" style="width:13px;height:13px"><use href="#i-fi"/></svg> Filtros <span id="fBadge" hidden></span></button>
+<span id="count" aria-live="polite"></span>
+<button class="pill" id="waP" title="Ver los listos para contactar"><svg class="ic"><use href="#i-wa"/></svg><span id="waPT"></span></button>
+<button class="pill" id="veP" title="Filtrar verificados por ti"><svg class="ic"><use href="#i-ckc"/></svg><span id="vePT"></span></button>
+<div class="tbr"><select id="sort"><option value="country:1">País · orden lista</option><option value="name:1">Nombre A→Z</option><option value="name:-1">Nombre Z→A</option><option value="region:1">Región A→Z</option><option value="ready:1">Más listos primero</option><option value="custom" hidden>Personalizado</option></select>
+<button class="ib" id="dens" title="Densidad" style="border:1px solid var(--ln2)"><svg class="ic"><use href="#i-de"/></svg></button>
+<div class="seg" id="vt"><button id="vTable" title="Tabla"><svg class="ic"><use href="#i-tb"/></svg></button><button id="vCards" title="Tarjetas"><svg class="ic"><use href="#i-gr"/></svg></button></div></div>
+</div>
+<div id="bulk" hidden><b id="bulkN"></b><small id="bulkH"></small><span class="sp"></span><button class="btn sm" id="bulkExp"><svg class="ic" style="width:12px;height:12px"><use href="#i-dl"/></svg> Exportar</button><button class="btn sm d" id="bulkDel"><svg class="ic" style="width:12px;height:12px"><use href="#i-tr"/></svg> Eliminar</button><button class="btn sm" id="bulkNo">Cancelar</button></div>
+</div>
+<div id="list"><div id="tw"></div><div id="cw" hidden></div>
+<div id="empty" hidden><svg class="ic eb"><use href="#i-ball"/></svg><h3>Fuera de la cancha</h3><p>Ningún club coincide con los filtros actuales.</p><button class="btn p" id="emptyX"><svg class="ic"><use href="#i-un"/></svg> Limpiar filtros</button></div>
+</div>
+</div>
+</section>
+
+<footer id="notas"><div class="wrap"><div class="fgr">
+<div>
+<h3><svg class="ic"><use href="#i-fl"/></svg> Fuentes integradas y trazabilidad</h3>
+<p><b>Consolidación:</b> 1.xlsx aportó 88 registros con dirección y fuente; 2.csv aportó 16 (9 duplicados fusionados + 7 nuevos). Se conservaron los handles del CSV y los WhatsApp del Excel cuando el CSV traía placeholders. Total: <b>95 de tus listas + 13 complementos Atlas = 108 clubes</b>.</p>
+<table class="stab">
+<tr><td>Colombia</td><td><a href="https://padelocal.com/" target="_blank" rel="noopener">padelocal.com</a> · 16 + 5 Atlas</td></tr>
+<tr><td>El Salvador</td><td>Búsqueda Google (Excel) + CSV · 3 + 1 Atlas</td></tr>
+<tr><td>Nicaragua</td><td>Búsqueda Google (Excel) + CSV · 3 + 1 Atlas</td></tr>
+<tr><td>Guatemala</td><td><a href="https://padel.com.gt/" target="_blank" rel="noopener">padel.com.gt</a> · 9</td></tr>
+<tr><td>Rep. Dominicana</td><td><a href="https://www.fdp.do/if_consultaclub2.aspx" target="_blank" rel="noopener">fdp.do</a> + CSV · 9 + 2 Atlas</td></tr>
+<tr><td>Ecuador</td><td>Búsqueda Google (Excel) + CSV · 10 + 1 Atlas</td></tr>
+<tr><td>Perú</td><td><a href="https://limapadel.pe/clubes/lima" target="_blank" rel="noopener">limapadel.pe</a> + CSV · 25 + 2 Atlas</td></tr>
+<tr><td>Bolivia</td><td><a href="https://padelmesh.com/es/bo/clubs" target="_blank" rel="noopener">padelmesh.com</a> + CSV · 20 + 1 Atlas</td></tr>
+</table>
+<p><b>Honestidad del dato:</b> ningún número fue inventado. Los placeholders del CSV se detectaron por patrón de dígitos repetidos y se descartaron. Perú no publica WhatsApp en su directorio (25 clubes sin número): la cola de verificación los prioriza. Los registros «Atlas» son instituciones de alta notoriedad añadidas para cubrir huecos y requieren confirmación.</p>
+</div>
+<div class="fside"><h3><svg class="ic"><use href="#i-bm"/></svg> Tus datos locales</h3><p>Verificaciones, ediciones, notas y vistas se guardan en este navegador y viajan en el Excel.</p><span id="changes"></span><button class="btn sm d" id="restore"><svg class="ic" style="width:12px;height:12px"><use href="#i-un"/></svg> Restaurar consolidado original</button></div>
+</div>
+<div class="cred"><svg class="ic"><use href="#i-racket"/></svg><span><b>PADEL ATLAS LATAM v2.1</b> · Creado por Ricardo Moacyr · para <b>Tienda de Pádel</b> — Panamá · Noviembre 2026</span></div>
+</div></footer>
+</main>
+
+<div class="scrim" id="sheetScrim"></div><div class="scrim" id="dScrim"></div>
+<aside id="drawer" role="dialog" aria-modal="true" aria-label="Ficha del club">
+<div class="dh"><b>Ficha del club</b><button class="ib" id="dX" aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+<div id="db"></div>
+<div class="df"><button class="btn" data-de><svg class="ic"><use href="#i-pen"/></svg> Editar</button><button class="btn" data-dc><svg class="ic"><use href="#i-cp"/></svg> Copiar</button><button class="btn d" data-dd><svg class="ic"><use href="#i-tr"/></svg> Eliminar</button></div>
+</aside>
+
+<div class="mw" id="modal" hidden><div class="mc2" role="dialog" aria-modal="true">
+<div class="mh"><h2 id="mTitle"><svg class="ic"><use href="#i-plus"/></svg><span>Añadir club</span></h2><button class="ib" id="mX" aria-label="Cerrar"><svg class="ic"><use href="#i-x"/></svg></button></div>
+<form id="form" novalidate><div class="grid">
+<div class="fd full"><label for="f-name">Nombre del club <em>*</em></label><input id="f-name" type="text" maxlength="80"><span class="err" id="e-name"></span></div>
+<div class="fd"><label for="f-country">País <em>*</em></label><select id="f-country"></select></div>
+<div class="fd"><label for="f-city">Ciudad <em>*</em></label><input id="f-city" type="text" maxlength="60"><span class="err" id="e-city"></span></div>
+<div class="fd"><label for="f-region">Región / Departamento</label><input id="f-region" type="text" list="regions" maxlength="50"></div>
+<div class="fd"><label for="f-addr">Dirección</label><input id="f-addr" type="text" maxlength="120"></div>
+<div class="fd"><label for="f-ig">Instagram</label><input id="f-ig" type="text" placeholder="@club"><span class="hint" id="pvIg"></span><span class="err" id="e-ig"></span></div>
+<div class="fd"><label for="f-wa">WhatsApp</label><input id="f-wa" type="tel" placeholder="+57 300 123 4567"><span class="hint" id="pvWa"></span><span class="err" id="e-wa"></span></div>
+<div class="fd full"><label for="f-maps">Maps (URL opcional)</label><input id="f-maps" type="text" placeholder="Vacío = búsqueda nombre + dirección + país"><span class="hint" id="pvMaps"></span><span class="err" id="e-maps"></span></div>
+<div class="fd full"><label for="f-note">Nota interna</label><textarea id="f-note" rows="2" maxlength="300"></textarea></div>
+</div><div class="mf"><button type="button" class="btn" id="mNo">Cancelar</button><button type="submit" class="btn p" id="mOk"><svg class="ic"><use href="#i-ck"/></svg> Guardar</button></div></form>
+</div></div>
+
+<div class="mw" id="cf" hidden><div class="mc2" role="alertdialog" aria-modal="true"><h2><svg class="ic"><use href="#i-al"/></svg> Confirmar</h2><p id="cfText"></p><div class="mf"><button class="btn" id="cfNo">Cancelar</button><button class="btn d" id="cfOk">Sí, restaurar</button></div></div></div>
+<div id="toasts" aria-live="polite"></div><datalist id="regions"></datalist>
+<noscript><div style="padding:90px 24px;text-align:center">Activa JavaScript para ver el directorio interactivo de 108 clubes.</div></noscript>
+
+<script id="padel-data">
+window.PADEL_C=[["co","Colombia","Colombia","#FFC53D","57",["Bogotá D.C.","Cundinamarca","Antioquia","Valle del Cauca","Atlántico","Bolívar","Magdalena"]],["sv","El Salvador","El Salvador","#4D8DFF","503",["San Salvador","La Libertad"]],["ni","Nicaragua","Nicaragua","#38BDF8","505",["Managua"]],["gt","Guatemala","Guatemala","#2DD4BF","502",["Guatemala","Sacatepéquez","Suchitepéquez"]],["do","Rep. Dominicana","R. Dominicana","#FF5A6E","1",["Distrito Nacional","Santiago","La Romana"]],["ec","Ecuador","Ecuador","#FF9838","593",["Pichincha","Guayas"]],["pe","Perú","Perú","#FF3DA6","51",["Lima","Lima (Cañete)","Arequipa","La Libertad","Lambayeque"]],["bo","Bolivia","Bolivia","#4ADE80","591",["Santa Cruz","Cochabamba","La Paz","Beni"]]];
+window.PADEL_D=[
+["c01","Locos por Pádel","co","Bogotá D.C.","Bogotá","Cl. 147 #58C-04","locosporpadel","573160234639","padelocal"],
+["c02","La Pala Club de Pádel","co","Bogotá D.C.","Bogotá","","lapalabogota","","padelocal",{csv:1,ph:"573100000000",alt:"lapalapadel",note:"Conflicto de handles: Excel @lapalabogota vs CSV @lapalapadel. El CSV traía un WhatsApp placeholder; descartado."}],
+["c03","Pádel Planet Co","co","Bogotá D.C.","Bogotá","","padelplanetco","","padelocal"],
+["c04","Spin Padel","co","Bogotá D.C.","Bogotá","Cl. 134 #55-30","","","padelocal"],
+["c05","Bogotá Pádel Club","co","Bogotá D.C.","Bogotá","Ak 7 #69-41","bogotapadelclub","573165306717","padelocal",{csv:1,note:"WhatsApp coincide en Excel y CSV. IG aportado por el CSV."}],
+["c06","Pádel Drop 92","co","Bogotá D.C.","Bogotá","Calle 92 #15-32","padeldrop92","573183950958","padelocal"],
+["c07","Distrito Padel","co","Bogotá D.C.","Bogotá","Ak. 58 #169-02","","","padelocal"],
+["c08","PZD | Pro Padel Zone","co","Bogotá D.C.","Bogotá","Cra. 19a #78-99","","","padelocal"],
+["c09","Padelhub Club El Rodeo","co","Antioquia","Medellín","Cl. 2 Sur #65-535","","573208323013","padelocal"],
+["c10","La Bodega del Padel","co","Antioquia","Medellín","Cra. 44 #25-59","","573052274979","padelocal"],
+["c11","Club Santa María (Padelhub)","co","Antioquia","Medellín","Cl. 7B Sur #29C-100","","573112321560","padelocal"],
+["c12","Ultimate Padel","co","Valle del Cauca","Cali","Cra. 125 #19-59","","573173725231","padelocal"],
+["c13","Panoramic Padel Cali","co","Valle del Cauca","Cali","Cra. 125 #16A-02","","573168337987","padelocal"],
+["c14","Gran Padel Social Club","co","Atlántico","Barranquilla","Cra. 59B #81-158","","573102105284","padelocal"],
+["c15","Padel House Cartagena","co","Bolívar","Cartagena","Barrio Crespo","padelhousectg","573216990205","padelocal"],
+["c16","Arena Pádel Club Santa Marta","co","Magdalena","Santa Marta","Sector Tres Cazuelas, Rodadero","","573007655566","padelocal"],
+["a01","Green Padel Club","co","Cundinamarca","Chía","","greenpadelclub","","atlas",{note:"Complemento Atlas: club 100% pádel con academia y torneos. Confirmar contacto comercial."}],
+["a02","Club El Nogal","co","Bogotá D.C.","Bogotá","","clubelnogal","","atlas",{note:"Complemento Atlas: club social premium con canchas indoor."}],
+["a03","Club Los Lagartos","co","Bogotá D.C.","Bogotá","","clubloslagartos","","atlas",{note:"Complemento Atlas: confirmar encargado de pádel."}],
+["a04","Country Club de Bogotá","co","Bogotá D.C.","Bogotá","","countryclubdebogota","","atlas",{note:"Complemento Atlas: escuela de pádel activa."}],
+["a05","Club Campestre de Cali","co","Valle del Cauca","Cali","","clubcampestrecali","","atlas",{note:"Complemento Atlas: confirmar sección de pádel."}],
+["s01","Padel Town","sv","San Salvador","San Salvador","Calle #1","padeltown","50369995172","gsearch",{csv:1,note:"El CSV traía placeholder 50371111111; se usa el número real del Excel."}],
+["s02","Círculo Deportivo Internacional","sv","San Salvador","San Salvador","Alameda Manuel Enrique Araujo y Calle Lorena","","50325283700","gsearch",{note:"Cancha de pádel dentro del club social."}],
+["s03","Padel One","sv","La Libertad","Nuevo Cuscatlán","","padelone.sv","","csv",{ph:"503700000000",note:"Aporte CSV. WhatsApp placeholder descartado: verificar vía IG."}],
+["a06","Club Salvadoreño","sv","San Salvador","San Salvador","","clubsalvadoreno","","atlas",{note:"Complemento Atlas: confirmar sección de pádel."}],
+["n01","Raqueteo Padel Club","ni","Managua","Managua","Camino Oriente, frente edificio Kakau","raqueteoclub","50589228877","gsearch",{csv:1,note:"El CSV traía placeholder 505800000000; se usa el real del Excel."}],
+["n02","Zona Padel","ni","Managua","Managua","Costado noroeste Rotonda Jean Paul Genie","","","gsearch"],
+["n03","Café Las Flores Padel Club","ni","Managua","Managua (Las Colinas)","","cafelasflores","50558612098","csv",{note:"Aporte CSV con WhatsApp real."}],
+["a07","Club Terraza","ni","Managua","Managua","","clubterraza","","atlas",{note:"Complemento Atlas: principal club de raquetas; confirmar canchas de pádel."}],
+["g01","Futeca Padel","gt","Guatemala","Ciudad de Guatemala","Zona 14","","50250008392","padelgt"],
+["g02","Padel Arena","gt","Guatemala","Ciudad de Guatemala","3 Avenida 9-33, Zona 9","","50256310897","padelgt"],
+["g03","Rally Padel","gt","Guatemala","Ciudad de Guatemala","Zona 16","","50230132166","padelgt"],
+["g04","Padel Park","gt","Guatemala","Ciudad de Guatemala","14 Avenida 15-02, Zona 10","","50235735304","padelgt"],
+["g05","La Finca Country Club","gt","Suchitepéquez","Cuyotenango","Finca El Rosario km 166.5","","50242712875","padelgt"],
+["g06","Club de Padel Garadian","gt","Guatemala","Ciudad de Guatemala","Boulevard Austriaco 37-01, Zona 16","","50255790242","padelgt"],
+["g07","Vista Hermosa Padel","gt","Guatemala","Ciudad de Guatemala","Zona 15","","50230204531","padelgt"],
+["g08","El Sótano Club de Pádel","gt","Guatemala","Ciudad de Guatemala","Calzada Roosevelt 33-85, Zona 11","elsotanopadel","50230494036","padelgt",{csv:1,note:"WhatsApp coincide en Excel y CSV. IG aportado por el CSV."}],
+["g09","Quattro Padel Club","gt","Sacatepéquez","Antigua Guatemala","Finca Colombia","quattropadel","50237814161","padelgt",{csv:1,note:"El CSV traía placeholder 502400000000; se usa el real del Excel."}],
+["d01","Grove Padel Club","do","Distrito Nacional","Santo Domingo","Av. Santo Cerro","grovepadelclub","18093752929","fdp",{csv:1,note:"El CSV traía placeholder 18090000000; se usa el real de la FDP."}],
+["d02","Padel Republic","do","Distrito Nacional","Santo Domingo","Av. 27 de Febrero 583","","18292087896","fdp"],
+["d03","Santo Domingo Padel Club (SDpadelClub)","do","Distrito Nacional","Santo Domingo","Av. Winston Churchill","","18097290975","fdp"],
+["d04","Padel Social Club","do","Distrito Nacional","Santo Domingo","Calle Simón Bolívar 969","","18495077674","fdp"],
+["d05","Padel Oasis","do","Distrito Nacional","Santo Domingo","Av. George Washington 500","","18094182813","fdp"],
+["d06","Padel Warehouse","do","Distrito Nacional","Santo Domingo","Calle 4 #3, Ensanche Camelita","","18293423393","fdp"],
+["d07","Dominican Padel Club","do","Distrito Nacional","Santo Domingo","Av. Luperón 25","","18495173645","fdp"],
+["d08","Teniclu Sports & Wellness","do","Santiago","Licey al Medio (Santiago)","Los Castillos, Las Palomas","","18099712687","fdp"],
+["d09","STI Racket Club","do","Santiago","Santiago de los Caballeros","","stiracketclub","18498861200","csv",{note:"Aporte CSV con WhatsApp real."}],
+["a08","Casa de Campo Resort & Villas","do","La Romana","La Romana","","casadecampodr","","atlas",{note:"Complemento Atlas: resort con canchas de pádel; contacto vía depto. deportivo."}],
+["a09","Club Deportivo Naco","do","Distrito Nacional","Santo Domingo","","clubnaco","","atlas",{note:"Complemento Atlas: club social top de Santo Domingo."}],
+["e01","Club Padel Calderón","ec","Pichincha","Quito (Calderón)","Calle Vancouver y Av. Cacha","","593958736900","gsearch"],
+["e02","LaPala Club","ec","Pichincha","Quito (Tumbaco)","C. Carchi y Ruta Viva","","593999977500","gsearch"],
+["e03","La Pampa Padel Club","ec","Pichincha","Quito","Av. La Pampa y Av. Manuel Córdova Galarza","","593958963450","gsearch"],
+["e04","Q-Pádel","ec","Pichincha","Quito","Alfonso Lamiña","","593964069883","gsearch"],
+["e05","Urban Pádel","ec","Pichincha","Quito","Av. de la República y La Pradera","","593986999023","gsearch"],
+["e06","Miravalle Padel Hub","ec","Pichincha","Quito","Av. Interoceánica km 4","","593963519388","gsearch"],
+["e07","Cumbayá Padel Center","ec","Pichincha","Quito (Cumbayá)","Calle Isidro Ayora y Av. Oswaldo Guayasamín","cumbayapadelcenter","593995738363","gsearch",{csv:1,note:"WhatsApp coincide en Excel y CSV. IG aportado por el CSV."}],
+["e08","World Padel Center — La Catedral","ec","Pichincha","Quito (Tumbaco)","E28C km 14.5","","593997614247","gsearch"],
+["e09","Go Padel Center","ec","Guayas","Guayaquil","C. 13, Portón de las Lomas","","","gsearch"],
+["e10","18 Padel Club","ec","Pichincha","Quito","","18padelclub","","csv",{ph:"593980000000",note:"Aporte CSV. WhatsApp placeholder descartado: verificar vía IG."}],
+["a10","Guayaquil Tenis Club","ec","Guayas","Guayaquil","","guayaquiltenisclub","","atlas",{note:"Complemento Atlas: club de raqueta líder en Guayaquil."}],
+["p01","Bohemia Pádel Club","pe","Lima","San Borja","Av. San Borja Sur 1228","","","limapadel"],
+["p02","Club Pádel Lima (La Once)","pe","Lima","Surquillo","Av. Tomás Marsano 630","clubpadellima","","limapadel",{csv:1,ph:"51900000000",note:"IG del CSV. WhatsApp placeholder descartado; el directorio no publica número."}],
+["p03","Club Petroperú","pe","Lima","Santiago de Surco","Av. Club Golf Los Incas 320","","","limapadel"],
+["p04","Club X3","pe","Lima","Miraflores","Av. Paseo de la República 5840","","","limapadel"],
+["p05","Inside Court Pádel","pe","Lima","La Molina","Ca. Viña del Mar 235, Sol de la Molina","","","limapadel"],
+["p06","International Padel Asia — GIAC Sports","pe","Lima (Cañete)","Asia","Km 98, Panamericana Sur","","","limapadel",{note:"Balnearios de Asia: temporada alta dic–mar."}],
+["p07","Mad Pádel Surco","pe","Lima","Santiago de Surco","Jr. Venegas 898","","","limapadel"],
+["p08","Más+ Pádel Perú","pe","Lima","San Miguel","Av. Bertolotto 611","","","limapadel"],
+["p09","One Padel — Centro Naval","pe","Lima","San Borja","Av. San Luis 2347","","","limapadel"],
+["p10","One Padel — Domingo Orué","pe","Lima","Surquillo","Pje. Recabarraca s/n","","","limapadel"],
+["p11","One Padel — El Trigal","pe","Lima","Santiago de Surco","C. Los Antares 298","","","limapadel"],
+["p12","One Padel — Manuel Olguín","pe","Lima","Santiago de Surco","Av. Manuel Olguín 245","","","limapadel"],
+["p13","Pádel Arena Surco","pe","Lima","Santiago de Surco","El Polo 843","","","limapadel"],
+["p14","Peru Padel Center — Benavides","pe","Lima","Miraflores","Av. Benavides","","","limapadel"],
+["p15","Peru Padel Center — Mendiburu","pe","Lima","Miraflores","Av. Gral. Mendiburu 671","","","limapadel"],
+["p16","Pro Padel Peru","pe","Lima","Magdalena del Mar","Av. del Ejército 750","","","limapadel"],
+["p17","Top Padel La Molina","pe","Lima","La Molina","Av. Melgarejo 147","","","limapadel"],
+["p18","X Pádel Lima","pe","Lima","Jesús María","Club Lawn Tennis, Av. General Salaverry 399","","","limapadel"],
+["p19","AQP Pádel Center","pe","Arequipa","Cerro Colorado (Arequipa)","Prolongación Villa Hermoza s/n","","","limapadel"],
+["p20","Padel Nation","pe","Arequipa","Cerro Colorado (Arequipa)","Av. Aviación km 4","","","limapadel"],
+["p21","The Urban Padel Hub","pe","La Libertad","Trujillo","Mz D Lote 5D, Urb. El Golf","","","limapadel"],
+["p22","X Pádel Trujillo","pe","La Libertad","Trujillo","El Golf","","","limapadel"],
+["p23","Jockey Club de Chiclayo","pe","Lambayeque","Chiclayo (La Victoria)","Los Incas 379","","","limapadel"],
+["p24","Larena Club","pe","Lambayeque","Pimentel","Prol. Los Arenales s/n, Los Sauces","","","limapadel"],
+["p25","Igma Padel Center","pe","Lima","Santiago de Surco","","igmapadel","","csv",{ph:"51911000000",maps:"https://maps.google.com/?q=Yoy+Lima+Box+Park+Club+El+Jockey+Lima",note:"WhatsApp placeholder descartado. El Maps del CSV apunta a Box Park El Jockey: confirmar sede real."}],
+["a11","Club Terrazas","pe","Lima","Miraflores","","clubterrazas","","atlas",{note:"Complemento Atlas: referente del pádel limeño."}],
+["a12","Club Regatas Lima","pe","Lima","Chorrillos","","clubregataslima","","atlas",{note:"Complemento Atlas: gran club deportivo; confirmar contacto de pádel."}],
+["b01","Go Padel Santa Cruz","bo","Santa Cruz","Santa Cruz de la Sierra","","","","padelmesh"],
+["b02","Black Padel Cochabamba","bo","Cochabamba","Cochabamba","","","","padelmesh"],
+["b03","Zona Padel","bo","La Paz","La Paz","","","","padelmesh"],
+["b04","Costanera Central Padel Club","bo","Santa Cruz","Santa Cruz de la Sierra","Avenida 4to Anillo","","","padelmesh"],
+["b05","Top Padel","bo","Santa Cruz","Santa Cruz de la Sierra","","","","padelmesh"],
+["b06","Nación Padel","bo","Cochabamba","Cochabamba","","","","padelmesh"],
+["b07","El Mero Mero Pádel Club Tiquipaya","bo","Cochabamba","Tiquipaya","","","","padelmesh"],
+["b08","PadelBo Norte","bo","Santa Cruz","Santa Cruz de la Sierra","","","","padelmesh"],
+["b09","Pádel Sport SC","bo","Santa Cruz","Santa Cruz de la Sierra","Av. Banzer, entre 3er y 4to anillo","padelsportsc","59167877725","padelmesh"],
+["b10","360 Padel Club","bo","Santa Cruz","Santa Cruz de la Sierra","","","","padelmesh"],
+["b11","Padel Chopp","bo","Beni","Trinidad","","","","padelmesh"],
+["b12","Padel Zone","bo","Cochabamba","Quillacollo","","","","padelmesh"],
+["b13","Central Padel Club","bo","Cochabamba","Cochabamba","","","","padelmesh"],
+["b14","Pro Padel Cochabamba","bo","Cochabamba","Cochabamba","","","","padelmesh"],
+["b15","Fiori’s Padel Club","bo","La Paz","La Paz","Carreras 5","fioris_padel_club","59177259952","padelmesh"],
+["b16","Cape Padel","bo","Santa Cruz","Colinas del Urubó","Avenida Segunda","capepadel.scz","59179894724","padelmesh"],
+["b17","Elite Padel","bo","Santa Cruz","Santa Cruz de la Sierra","Dr. Alejandro Ramirez","","59176201122","padelmesh"],
+["b18","Padel House","bo","La Paz","La Paz","Av. Arequipa","","59177761003","padelmesh"],
+["b19","Gatorade Padel Park","bo","La Paz","La Paz (Calacoto)","Calacoto Calle 16","gatoradepadelpark","","csv",{ph:"59170000000",note:"Aporte CSV. WhatsApp placeholder descartado: verificar vía IG."}],
+["b20","Boli Padel","bo","Santa Cruz","Santa Cruz de la Sierra (Equipetrol)","Equipetrol Manzana 40","bolipadel","","csv",{ph:"59171111111",note:"Aporte CSV. WhatsApp placeholder descartado: verificar vía IG."}],
+["a13","Club Tenis Santa Cruz","bo","Santa Cruz","Santa Cruz de la Sierra","","clubtenissantacruz","","atlas",{note:"Complemento Atlas: referente del pádel boliviano."}]
+];
+</script>
+
+<script>
+(function(){
+'use strict';
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))};
+var esc=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})};
+var ic=function(n,st){return '<svg class="ic"'+(st?' style="'+st+'"':'')+' aria-hidden="true"><use href="#i-'+n+'"/></svg>'};
+var fl=function(k){return '<svg class="fl" aria-hidden="true"><use href="#f-'+k+'"/></svg>'};
+var C=window.PADEL_C,RAW=window.PADEL_D;
+var CM={},CO={};C.forEach(function(c,i){CM[c[0]]={key:c[0],name:c[1],short:c[2],color:c[3],code:c[4],regions:c[5]};CO[c[0]]=i});
+var SRC={padelocal:['Padelocal','https://padelocal.com/'],padelgt:['PadelGT','https://padel.com.gt/'],fdp:['FDP.do','https://www.fdp.do/if_consultaclub2.aspx'],limapadel:['LimaPadel','https://limapadel.pe/clubes/lima'],padelmesh:['PadelMesh','https://padelmesh.com/es/bo/clubs'],gsearch:['Búsqueda',''],csv:['CSV',''],atlas:['Atlas',''],manual:['Manual','']};
+var GS={sv:'https://www.google.com/search?q=clubes+padel+El+Salvador',ni:'https://www.google.com/search?q=clubes+padel+Nicaragua',ec:'https://www.google.com/search?q=clubes+padel+Ecuador'};
+var BASE=RAW.map(function(r){var x=r[9]||{};return{id:r[0],name:r[1],country:r[2],region:r[3],city:r[4],addr:r[5],ig:r[6],wa:r[7],src:r[8],maps:x.maps||'',note:x.note||'',csv:x.csv||0,ph:x.ph||'',alt:x.alt||''}});
+var RL={listo:'Listo',wa:'WA',ig:'IG',none:'Sin contacto'};
+var ready=function(c){return c.wa&&c.ig?'listo':c.wa?'wa':c.ig?'ig':'none'};
+var igU=function(c){return c.ig?'https://www.instagram.com/'+c.ig+'/':'https://www.google.com/search?q='+encodeURIComponent('site:instagram.com '+c.name+' pádel '+c.city)};
+var waU=function(c){return c.wa?'https://wa.me/'+c.wa:'https://www.google.com/search?q='+encodeURIComponent('"'+c.name+'" '+c.city+' WhatsApp pádel')};
+var mpU=function(c){return c.maps||'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(c.name+', '+(c.addr||c.city)+', '+CM[c.country].name)};
+var srU=function(c){return SRC[c.src]&&SRC[c.src][1]?SRC[c.src][1]:(c.src==='gsearch'?(GS[c.country]||''):'')};
+var srL=function(c){return SRC[c.src]?SRC[c.src][0]:'—'};
+var conf=function(c){return !!c.alt||/confirmar sede/i.test(c.note||'')};
+var KEY='padelAtlas.v21',okLS=true;
+var DB={ov:{},add:[],del:[],views:[],prefs:{banner:1,dens:'cozy',view:'table'}};
+try{var raw=localStorage.getItem(KEY);if(raw){var p=JSON.parse(raw);DB.ov=p.ov||{};DB.add=p.add||[];DB.del=p.del||[];DB.views=p.views||[];DB.prefs=Object.assign(DB.prefs,p.prefs||{})}localStorage.setItem(KEY+'t','1');localStorage.removeItem(KEY+'t')}catch(e){okLS=false}
+var save=function(){if(!okLS)return;try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){okLS=false}};
+var EMPTY={q:'',country:'all',region:'all',src:'all',contact:'all',ver:false};
+var S={f:Object.assign({},EMPTY),sort:{k:'country',d:1},view:DB.prefs.view,dens:DB.prefs.dens,sel:{},nsel:0,drawer:null,edit:null};
+var all=function(){var d={};DB.del.forEach(function(i){d[i]=1});var m=function(c){return Object.assign({},c,DB.ov[c.id]||{})};return BASE.filter(function(c){return !d[c.id]}).map(m).concat(DB.add.filter(function(c){return !d[c.id]}).map(m))};
+var byId=function(id){var a=all();for(var i=0;i<a.length;i++)if(a[i].id===id)return a[i];return null};
+var isV=function(c){return !!(DB.ov[c.id]&&DB.ov[c.id].verified)};
+var ov=function(id,patch){DB.ov[id]=Object.assign({},DB.ov[id]||{},patch);save()};
+function pass(c,f){
+ if(f.country!=='all'&&c.country!==f.country)return false;
+ if(f.region!=='all'&&c.region!==f.region)return false;
+ if(f.src!=='all'&&c.src!==f.src)return false;
+ if(f.ver&&!isV(c))return false;
+ var k=f.contact;
+ if(k==='listo'&&!(c.wa&&c.ig))return false;
+ if(k==='wa'&&!(c.wa&&!c.ig))return false;
+ if(k==='ig'&&!(c.ig&&!c.wa))return false;
+ if(k==='none'&&(c.wa||c.ig))return false;
+ if(k==='ph'&&!c.ph)return false;
+ if(k==='conf'&&!conf(c))return false;
+ if(f.q){var h=(c.name+' '+CM[c.country].name+' '+c.region+' '+c.city+' '+c.addr+' '+c.ig+' '+c.alt+' '+c.wa+' '+c.note+' '+srL(c)).toLowerCase();if(h.indexOf(f.q.toLowerCase())<0)return false}
+ return true;
+}
+var RK={listo:0,wa:1,ig:2,none:3};
+function view(){var a=all().filter(function(c){return pass(c,S.f)}),k=S.sort.k,d=S.sort.d;
+ var cmp={country:function(a,b){return (CO[a.country]-CO[b.country])||a.name.localeCompare(b.name,'es')},name:function(a,b){return a.name.localeCompare(b.name,'es')},region:function(a,b){return a.region.localeCompare(b.region,'es')||a.name.localeCompare(b.name,'es')},ready:function(a,b){return (RK[ready(a)]-RK[ready(b)])||a.name.localeCompare(b.name,'es')}}[k];
+ return a.sort(function(x,y){return cmp(x,y)*d});
+}
+var PRE=[{id:'r',c:'r',n:'Listos para contactar',i:'ckc',f:{contact:'listo'}},{id:'w',c:'w',n:'Solo WhatsApp',i:'wa',f:{contact:'wa'}},{id:'i',c:'i',n:'Solo Instagram',i:'ig',f:{contact:'ig'}},{id:'n',c:'n',n:'Sin contacto directo',i:'al',f:{contact:'none'}},{id:'ph',c:'ph',n:'Placeholders WA',i:'al',f:{contact:'ph'}},{id:'cf',c:'cf',n:'Conflictos de datos',i:'al',f:{contact:'conf'}},{id:'at',c:'at',n:'Complementos Atlas',i:'gl',f:{src:'atlas'}}];
+/* ---------- toasts ---------- */
+function toast(t,msg,act){
+ var box=$('#toasts');while(box.children.length>=3)box.removeChild(box.firstChild);
+ var el=document.createElement('div');el.className='toast '+t;
+ el.innerHTML=ic({success:'ckc',info:'in',warn:'al',danger:'tr'}[t]||'in')+'<p>'+esc(msg)+'</p>'+(act?'<button class="act">'+esc(act.label)+'</button>':'')+'<button class="tx" aria-label="Cerrar">'+ic('x')+'</button><div class="pg"></div>';
+ box.appendChild(el);
+ var pg=el.querySelector('.pg'),start=Date.now(),left=6000,tm;
+ var kill=function(){clearTimeout(tm);el.classList.add('out');setTimeout(function(){el.parentNode&&el.parentNode.removeChild(el)},280)};
+ var arm=function(ms){tm=setTimeout(kill,ms)};arm(left);
+ el.addEventListener('mouseenter',function(){clearTimeout(tm);left-=Date.now()-start;pg.style.animationPlayState='paused'});
+ el.addEventListener('mouseleave',function(){start=Date.now();pg.style.animationPlayState='running';arm(Math.max(left,600))});
+ el.querySelector('.tx').onclick=kill;
+ if(act)el.querySelector('.act').onclick=function(){act.fn();kill()};
+}
+function copy(txt,msg){
+ var fb=function(){try{var t=document.createElement('textarea');t.value=txt;t.style.cssText='position:fixed;opacity:0';document.body.appendChild(t);t.select();document.execCommand('copy');t.remove();toast('success',msg)}catch(e){toast('warn','No se pudo copiar')}};
+ if(navigator.clipboard&&navigator.clipboard.writeText)navigator.clipboard.writeText(txt).then(function(){toast('success',msg)},fb);else fb();
+}
+/* ---------- export: XLSX nativo (sin librerías) ---------- */
+var CRCT=(function(){var t=new Uint32Array(256);for(var n=0;n<256;n++){var c=n;for(var k=0;k<8;k++)c=c&1?0xEDB88320^(c>>>1):c>>>1;t[n]=c>>>0}return t})();
+function crc32(u){var c=0xFFFFFFFF;for(var i=0;i<u.length;i++)c=CRCT[(c^u[i])&255]^(c>>>8);return (c^0xFFFFFFFF)>>>0}
+function u16(v){var b=new Uint8Array(2);new DataView(b.buffer).setUint16(0,v,true);return b}
+function u32(v){var b=new Uint8Array(4);new DataView(b.buffer).setUint32(0,v>>>0,true);return b}
+function zip(files){
+ var enc=new TextEncoder(),parts=[],cent=[],off=0;
+ files.forEach(function(f){
+  var nm=enc.encode(f.name),data=enc.encode(f.data),crc=crc32(data);
+  var loc=[u32(0x04034b50),u16(20),u16(0),u16(0),u16(0),u16(0x21),u32(crc),u32(data.length),u32(data.length),u16(nm.length),u16(0),nm,data];
+  loc.forEach(function(p){parts.push(p);off+=p.length});
+  cent.push([u32(0x02014b50),u16(20),u16(20),u16(0),u16(0),u16(0),u16(0x21),u32(crc),u32(data.length),u32(data.length),u16(nm.length),u16(0),u16(0),u16(0),u16(0),u32(0),u32(off-loc.reduce(function(s,p){return s+p.length},0)),nm]);
+ });
+ var cds=0;cent.forEach(function(c){c.forEach(function(p){parts.push(p);cds+=p.length})});
+ [u32(0x06054b50),u16(0),u16(0),u16(files.length),u16(files.length),u32(cds),u32(off),u16(0)].forEach(function(p){parts.push(p)});
+ return new Blob(parts,{type:'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'});
+}
+var xe=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[m]}).replace(/[\x00-\x08\x0B\x0C\x0E-\x1F]/g,'')};
+function colN(i){var s='';i++;while(i>0){var m=(i-1)%26;s=String.fromCharCode(65+m)+s;i=(i-m-1)/26}return s}
+var NS='http://schemas.openxmlformats.org/spreadsheetml/2006/main',RS='http://schemas.openxmlformats.org/officeDocument/2006/relationships',PS='http://schemas.openxmlformats.org/package/2006/relationships';
+var STYLES='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><styleSheet xmlns="'+NS+'"><fonts count="2"><font><sz val="11"/><name val="Calibri"/></font><font><b/><sz val="11"/><color rgb="FF0A1220"/><name val="Calibri"/></font></fonts><fills count="3"><fill><patternFill patternType="none"/></fill><fill><patternFill patternType="gray125"/></fill><fill><patternFill patternType="solid"><fgColor rgb="FFD9F542"/><bgColor indexed="64"/></patternFill></fill></fills><borders count="1"><border><left/><right/><top/><bottom/><diagonal/></border></borders><cellStyleXfs count="1"><xf numFmtId="0" fontId="0" fillId="0" borderId="0"/></cellStyleXfs><cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="2" borderId="0" xfId="0" applyFont="1" applyFill="1"/></cellXfs></styleSheet>';
+function sheetXml(rows,links,widths){
+ var rels=[],x='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><worksheet xmlns="'+NS+'" xmlns:r="'+RS+'">';
+ if(widths)x+='<cols>'+widths.map(function(w,i){return '<col min="'+(i+1)+'" max="'+(i+1)+'" width="'+w+'" customWidth="1"/>'}).join('')+'</cols>';
+ x+='<sheetData>';
+ rows.forEach(function(row,ri){
+  x+='<row r="'+(ri+1)+'">';
+  row.forEach(function(v,ci){
+   var ref=colN(ci)+(ri+1),st=ri===0?' s="1"':'';
+   if(typeof v==='number'&&isFinite(v)){x+='<c r="'+ref+'"'+st+'><v>'+v+'</v></c>';return}
+   var s=String(v==null?'':v);if(!s)return;
+   x+='<c r="'+ref+'"'+st+' t="inlineStr"><is><t xml:space="preserve">'+xe(s)+'</t></is></c>';
+   if(ri>0&&links.indexOf(ci)>=0&&/^https?:\/\//.test(s))rels.push({ref:ref,u:s});
+  });
+  x+='</row>';
+ });
+ x+='</sheetData>';
+ if(rows.length>1)x+='<autoFilter ref="A1:'+colN(rows[0].length-1)+rows.length+'"/>';
+ if(rels.length)x+='<hyperlinks>'+rels.map(function(h,i){return '<hyperlink ref="'+h.ref+'" r:id="rId'+(i+1)+'"/>'}).join('')+'</hyperlinks>';
+ x+='</worksheet>';
+ var rx=rels.length?'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="'+PS+'">'+rels.map(function(h,i){return '<Relationship Id="rId'+(i+1)+'" Type="'+RS+'/hyperlink" Target="'+xe(h.u)+'" TargetMode="External"/>'}).join('')+'</Relationships>':'';
+ return {xml:x,rels:rx};
+}
+function buildXlsx(sheets){
+ var files=[],ct='<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/><Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>';
+ sheets.forEach(function(s,i){ct+='<Override PartName="/xl/worksheets/sheet'+(i+1)+'.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>'});
+ files.push({name:'[Content_Types].xml',data:ct+'</Types>'});
+ files.push({name:'_rels/.rels',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="'+PS+'"><Relationship Id="rId1" Type="'+RS+'/officeDocument" Target="xl/workbook.xml"/></Relationships>'});
+ files.push({name:'xl/workbook.xml',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><workbook xmlns="'+NS+'" xmlns:r="'+RS+'"><sheets>'+sheets.map(function(s,i){return '<sheet name="'+xe(s.name)+'" sheetId="'+(i+1)+'" r:id="rId'+(i+1)+'"/>'}).join('')+'</sheets></workbook>'});
+ files.push({name:'xl/_rels/workbook.xml.rels',data:'<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="'+PS+'">'+sheets.map(function(s,i){return '<Relationship Id="rId'+(i+1)+'" Type="'+RS+'/worksheet" Target="worksheets/sheet'+(i+1)+'.xml"/>'}).join('')+'<Relationship Id="rId'+(sheets.length+1)+'" Type="'+RS+'/styles" Target="styles.xml"/></Relationships>'});
+ files.push({name:'xl/styles.xml',data:STYLES});
+ sheets.forEach(function(s,i){var r=sheetXml(s.rows,s.links||[],s.widths);files.push({name:'xl/worksheets/sheet'+(i+1)+'.xml',data:r.xml});if(r.rels)files.push({name:'xl/worksheets/_rels/sheet'+(i+1)+'.xml.rels',data:r.rels})});
+ return zip(files);
+}
+function dl(blob,name){var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove();setTimeout(function(){URL.revokeObjectURL(a.href)},5000)}
+function rowsFor(list){
+ var h=['Club','País','Región','Ciudad','Dirección','Instagram','Instagram URL','IG alternativo','WhatsApp','WhatsApp URL','Google Maps','Fuente','URL fuente','Aporte CSV','Placeholder descartado','Conflicto','Verificado','Notas'];
+ return [h].concat(list.map(function(c){return [c.name,CM[c.country].name,c.region,c.city,c.addr,c.ig?'@'+c.ig:'',igU(c),c.alt?'@'+c.alt:'',c.wa?'+'+c.wa:'',waU(c),mpU(c),srL(c),srU(c),c.csv?'Sí':'',c.ph?'+'+c.ph:'',c.alt?'Handles IG en conflicto':'',isV(c)?'Sí':'No',c.note]}));
+}
+function resFor(list){
+ var h=['País','Clubes','WA válidos','Con IG','Listos','Placeholders','Atlas','Verificados'];
+ var r=C.map(function(cc){var g=list.filter(function(c){return c.country===cc[0]});return [cc[1],g.length,g.filter(function(c){return c.wa}).length,g.filter(function(c){return c.ig}).length,g.filter(function(c){return c.wa&&c.ig}).length,g.filter(function(c){return c.ph}).length,g.filter(function(c){return c.src==='atlas'}).length,g.filter(isV).length]}).filter(function(x){return x[1]>0});
+ r.push(['TOTAL',list.length,list.filter(function(c){return c.wa}).length,list.filter(function(c){return c.ig}).length,list.filter(function(c){return c.wa&&c.ig}).length,list.filter(function(c){return c.ph}).length,list.filter(function(c){return c.src==='atlas'}).length,list.filter(isV).length]);
+ return [h].concat(r);
+}
+function queFor(list){
+ var r=[['Club','País','Situación','Acción sugerida','Instagram / búsqueda','Maps','Fuente']];
+ list.forEach(function(c){var is=[];
+  if(c.ph)is.push('WA placeholder descartado (+'+c.ph+')');
+  if(c.alt)is.push('Conflicto de handles IG');
+  if(!c.wa&&!c.ig)is.push('Sin contacto directo');
+  if(c.src==='atlas')is.push('Complemento Atlas sin fuente adjunta');
+  if(!is.length)return;
+  r.push([c.name,CM[c.country].name,is.join(' · '),c.ph?'Obtener número real vía IG o búsqueda y guardarlo':c.alt?'Abrir ambos perfiles y confirmar el activo':(!c.wa&&!c.ig)?'Buscar perfil y número, registrar':'Confirmar existencia y contactos',igU(c),mpU(c),srU(c)||srL(c)]);
+ });
+ return r;
+}
+function doExport(scope,fmt){
+ var list,label;
+ if(scope==='view'){list=view();label='vista filtrada'}
+ else if(scope==='sel'){list=all().filter(function(c){return S.sel[c.id]});label='selección'}
+ else{list=all().sort(function(a,b){return (CO[a.country]-CO[b.country])||a.name.localeCompare(b.name,'es')});label='lista completa'}
+ if(!list.length){toast('warn','No hay filas que exportar en ese alcance');return}
+ var stamp=new Date().toISOString().slice(0,10),base='padel-atlas-latam_'+scope+'_'+stamp;
+ if(fmt==='csv'){
+  var csv='\uFEFF'+rowsFor(list).map(function(r){return r.map(function(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"'}).join(',')}).join('\r\n');
+  dl(new Blob([csv],{type:'text/csv;charset=utf-8'}),base+'.csv');toast('success','CSV generado · '+list.length+' clubes');return;
+ }
+ try{
+  var blob=buildXlsx([{name:'Clubes',rows:rowsFor(list),links:[6,9,10,12],widths:[34,17,18,26,38,22,46,20,16,44,56,12,44,10,20,24,11,46]},
+   {name:'Resumen por país',rows:resFor(list),widths:[18,9,11,9,8,13,8,11]},
+   {name:'Verificación',rows:queFor(list),links:[4,5],widths:[34,17,52,46,46,56,40]}]);
+  dl(blob,base+'.xlsx');toast('success','Excel generado · '+list.length+' clubes · 3 hojas ('+label+')');
+ }catch(e){
+  var csv2='\uFEFF'+rowsFor(list).map(function(r){return r.map(function(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"'}).join(',')}).join('\r\n');
+  dl(new Blob([csv2],{type:'text/csv;charset=utf-8'}),base+'.csv');toast('info','Excel no disponible aquí: se descargó CSV con los mismos datos');
+ }
+}
+/* ---------- render ---------- */
+var first=true,mq=window.matchMedia('(max-width:1200px)'),red=window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+function hl(t,q){t=String(t==null?'':t);if(!q)return esc(t);var i=t.toLowerCase().indexOf(q.toLowerCase());if(i<0)return esc(t);return esc(t.slice(0,i))+'<mark>'+esc(t.slice(i,i+q.length))+'</mark>'+esc(t.slice(i+q.length))}
+function chipSrc(c){var u=srU(c),cl=c.src==='csv'?'csv':(c.src==='atlas'||c.src==='manual')?'atlas':c.src==='gsearch'?'gsearch':'';
+ return (u?'<a class="sc '+cl+'" href="'+u+'" target="_blank" rel="noopener" title="Abrir fuente">'+esc(srL(c))+'</a>':'<span class="sc '+cl+'">'+esc(srL(c))+'</span>')+(c.csv?'<span class="plus" title="También en 2.csv">+CSV</span>':'')}
+function chipR(c){var r=ready(c);return '<span class="rd '+r+'">'+RL[r]+'</span>'}
+function flags(c){var s='';if(c.ph)s+='<svg class="ic fli" aria-label="Placeholder descartado"><use href="#i-al"/></svg>';if(conf(c))s+='<svg class="ic fli" aria-label="Conflicto de datos"><use href="#i-al"/></svg>';return s}
+function vm(c){return isV(c)?'<svg class="ic vok" aria-label="Verificado"><use href="#i-ckc"/></svg>':''}
+function kpis(){
+ var a=all(),wa=0,ig=0,rdy=0,ve=0,cnt={};C.forEach(function(c){cnt[c[0]]=0});
+ a.forEach(function(c){if(c.wa)wa++;if(c.ig)ig++;if(c.wa&&c.ig)rdy++;if(isV(c))ve++;cnt[c.country]++});
+ $('#bigTotal').textContent=a.length;$('#kWA').textContent=wa;$('#kIG').textContent=ig;$('#kReady').textContent=rdy;
+ $('#waPT').textContent='WA '+wa+'/'+a.length;$('#vePT').textContent='✓ '+ve+'/'+a.length;$('#veP').classList.toggle('on',S.f.ver);
+ var d=$('#dist');
+ if(!d.children.length)C.forEach(function(c){var b=document.createElement('button');b.dataset.country=c[0];b.style.background=c[3];b.title=c[1]+' — filtrar';d.appendChild(b)});
+ var tot=Math.max(a.length,1);
+ requestAnimationFrame(function(){Array.prototype.forEach.call(d.children,function(b){b.style.width=(cnt[b.dataset.country]/tot*100)+'%'})});
+ var pv=[['Excel','#2DD4BF',a.filter(function(c){return ['csv','atlas','manual'].indexOf(c.src)<0}).length],['CSV','#FF7BC0',a.filter(function(c){return c.src==='csv'}).length],['Atlas','#FFC53D',a.filter(function(c){return c.src==='atlas'||c.src==='manual'}).length]];
+ $('#prov').innerHTML=pv.map(function(p){return '<i style="width:'+(p[2]/tot*100)+'%;background:'+p[1]+'"></i>'}).join('');
+ $('#provLeg').innerHTML=pv.map(function(p){return '<span><i style="background:'+p[1]+'"></i>'+p[0]+' <b>'+p[2]+'</b></span>'}).join('');
+ var n=Object.keys(DB.ov).length+DB.add.length+DB.del.length;
+ $('#changes').textContent=okLS?(n?n+' cambio(s) local(es) guardado(s)':'Sin cambios locales'):'⚠ Sin persistencia en este navegador';
+ $('#loadTxt').textContent=a.length+' clubes cargados';
+}
+function countries(){
+ var facet=all().filter(function(c){return pass(c,Object.assign({},S.f,{country:'all'}))}),cnt={},mx=1;
+ C.forEach(function(c){cnt[c[0]]=facet.filter(function(x){return x.country===c[0]}).length;mx=Math.max(mx,cnt[c[0]])});
+ $('#countries').innerHTML='<button class="ci all'+(S.f.country==='all'?' on':'')+'" data-country="all"><span class="cr">'+ic('gl')+'<span>Todos los países</span><b>'+facet.length+'</b></span></button>'+
+ C.map(function(c){return '<button class="ci'+(S.f.country===c[0]?' on':'')+'" data-country="'+c[0]+'"><span class="cr">'+fl(c[0])+'<span>'+esc(c[1])+'</span><b>'+cnt[c[0]]+'</b></span><span class="cb"><i style="width:'+(cnt[c[0]]/mx*100)+'%;background:'+c[3]+'"></i></span></button>'}).join('');
+ $('#rail').innerHTML='<button class="rc'+(S.f.country==='all'?' on':'')+'" data-country="all">'+ic('gl','width:13px;height:13px')+' Todos <b>'+facet.length+'</b></button>'+
+ C.map(function(c){return '<button class="rc'+(S.f.country===c[0]?' on':'')+'" data-country="'+c[0]+'">'+fl(c[0])+' '+esc(c[2])+' <b>'+cnt[c[0]]+'</b></button>'}).join('');
+}
+function selects(){
+ var sc=all().filter(function(c){return S.f.country==='all'||c.country===S.f.country});
+ var regs=[];sc.forEach(function(c){if(c.region&&regs.indexOf(c.region)<0)regs.push(c.region)});regs.sort(function(a,b){return a.localeCompare(b,'es')});
+ if(S.f.region!=='all'&&regs.indexOf(S.f.region)<0)S.f.region='all';
+ $('#region').innerHTML='<option value="all">Todas las regiones</option>'+regs.map(function(r){return '<option value="'+esc(r)+'"'+(S.f.region===r?' selected':'')+'>'+esc(r)+'</option>'}).join('');
+ var pres={};all().forEach(function(c){pres[c.src]=1});
+ var order=['padelocal','padelgt','fdp','limapadel','padelmesh','gsearch','csv','atlas','manual'].filter(function(k){return pres[k]});
+ if(S.f.src!=='all'&&!pres[S.f.src])S.f.src='all';
+ $('#src').innerHTML='<option value="all">Todas las fuentes</option>'+order.map(function(k){return '<option value="'+k+'"'+(S.f.src===k?' selected':'')+'>'+SRC[k][0]+(k==='csv'?' · 2.csv':k==='atlas'?' · complemento':'')+'</option>'}).join('');
+ $('#contact').value=S.f.contact;
+}
+function presets(){
+ $('#presets').innerHTML=PRE.map(function(p){
+  var f=Object.assign({},EMPTY,p.f),n=all().filter(function(c){return pass(c,f)}).length;
+  var on=Object.keys(p.f).every(function(k){return S.f[k]===p.f[k]})&&!S.f.q&&S.f.country==='all'&&S.f.region==='all'&&!S.f.ver&&(p.f.contact||S.f.contact==='all')&&(p.f.src||S.f.src==='all');
+  return '<button class="ps '+p.c+(on?' on':'')+'" data-pre="'+p.id+'">'+ic(p.i)+'<span>'+esc(p.n)+'</span><b>'+n+'</b></button>'}).join('');
+}
+function views(){
+ $('#views').innerHTML=DB.views.length?DB.views.map(function(v){return '<div class="vi"><button data-view="'+v.id+'">'+ic('bm','width:12px;height:12px')+'<span>'+esc(v.name)+'</span></button><button class="ib d" data-vdel="'+v.id+'" aria-label="Eliminar vista">'+ic('x','width:10px;height:10px')+'</button></div>'}).join(''):'<p class="emp">Guarda combinaciones de filtros para volver en un clic.</p>';
+}
+function rowHTML(c,i,q,an){
+ var cc=CM[c.country],sel=!!S.sel[c.id];
+ return '<tr data-id="'+c.id+'" class="'+(an?'an ':'')+(sel?'sel':'')+'" style="--cc:'+cc.color+';--d:'+Math.min(i*9,240)+'ms">'+
+ '<td class="wc"><label class="cbx"><input type="checkbox" data-check="'+c.id+'"'+(sel?' checked':'')+' aria-label="Seleccionar"><span></span></label></td>'+
+ '<td><button class="cn" data-open="'+c.id+'">'+hl(c.name,q)+vm(c)+'</button><div class="csub">'+ic('pin')+hl(c.city,q)+' '+chipSrc(c)+'</div></td>'+
+ '<td><button class="cty" data-country="'+c.country+'">'+fl(c.country)+'<span>'+esc(cc.short)+'</span></button></td>'+
+ '<td><button class="rl" data-region="'+esc(c.region)+'">'+hl(c.region,q)+'</button></td>'+
+ '<td>'+(c.ig?'<a class="lk ig" href="'+igU(c)+'" target="_blank" rel="noopener">'+ic('ig')+'<span>@'+hl(c.ig,q)+'</span></a>':'<a class="lk se" href="'+igU(c)+'" target="_blank" rel="noopener">'+ic('ig')+'<span>Buscar perfil</span>'+ic('ext')+'</a>')+'</td>'+
+ '<td>'+(c.wa?'<a class="lk wa" href="'+waU(c)+'" target="_blank" rel="noopener">'+ic('wa')+'<span>+'+esc(c.wa)+'</span></a>':'<a class="lk se" href="'+waU(c)+'" target="_blank" rel="noopener">'+ic('wa')+'<span>Buscar</span>'+ic('ext')+'</a>')+'</td>'+
+ '<td class="wm"><a class="ib mb" href="'+mpU(c)+'" target="_blank" rel="noopener" title="Google Maps">'+ic('pin')+'</a></td>'+
+ '<td>'+chipR(c)+flags(c)+'</td>'+
+ '<td class="wa"><button class="ib" data-edit="'+c.id+'" title="Editar">'+ic('pen','width:13px;height:13px')+'</button><button class="ib d" data-del="'+c.id+'" title="Eliminar">'+ic('tr','width:13px;height:13px')+'</button></td></tr>';
+}
+function cardHTML(c,i,q,an){
+ var cc=CM[c.country],sel=!!S.sel[c.id];
+ return '<article class="card'+(an?' an':'')+(sel?' sel':'')+'" data-id="'+c.id+'" style="--cc:'+cc.color+';--d:'+Math.min(i*16,280)+'ms">'+
+ '<div class="ctop"><span class="n">'+fl(c.country)+esc(cc.name)+'</span>'+chipR(c)+'</div>'+
+ '<h3><button data-open="'+c.id+'">'+hl(c.name,q)+vm(c)+'</button></h3>'+
+ '<div class="cloc">'+ic('pin')+hl(c.city,q)+' · <button class="rl" data-region="'+esc(c.region)+'">'+hl(c.region,q)+'</button>'+flags(c)+'</div>'+
+ (c.addr?'<div class="caddr">'+esc(c.addr)+'</div>':'')+
+ '<div class="csrc">'+chipSrc(c)+'</div>'+
+ '<div class="clinks">'+
+ (c.ig?'<a class="pl ig" href="'+igU(c)+'" target="_blank" rel="noopener">'+ic('ig')+'<span>@'+hl(c.ig,q)+'</span></a>':'<a class="pl se" href="'+igU(c)+'" target="_blank" rel="noopener">'+ic('ig')+'<span>Buscar IG</span></a>')+
+ (c.wa?'<a class="pl wa" href="'+waU(c)+'" target="_blank" rel="noopener">'+ic('wa')+'<span>+'+esc(c.wa)+'</span></a>':'<a class="pl se" href="'+waU(c)+'" target="_blank" rel="noopener">'+ic('wa')+'<span>Buscar WA</span></a>')+
+ '<a class="pl map" href="'+mpU(c)+'" target="_blank" rel="noopener">'+ic('pin')+'<span>Maps</span></a></div>'+
+ (c.note?'<div class="cnote">'+ic('pen')+'<span>'+esc(c.note)+'</span></div>':'')+
+ '<div class="cfoot"><label class="cbx"><input type="checkbox" data-check="'+c.id+'"'+(sel?' checked':'')+' aria-label="Seleccionar"><span></span></label><small>'+(c.wa?'WA listo':'WA pendiente')+'</small><span class="sp"></span><button class="ib" data-edit="'+c.id+'">'+ic('pen','width:13px;height:13px')+'</button><button class="ib d" data-del="'+c.id+'">'+ic('tr','width:13px;height:13px')+'</button></div></article>';
+}
+function listRender(list,an){
+ var q=S.f.q.trim(),cards=mq.matches||S.view==='cards';
+ $('#empty').hidden=list.length>0;$('#tw').hidden=cards||!list.length;$('#cw').hidden=!cards||!list.length;
+ if(cards){$('#cw').innerHTML=list.map(function(c,i){return cardHTML(c,i,q,an)}).join('')}
+ else{
+  var th=function(k,l){var on=S.sort.k===k;return '<th class="s'+(on?' on':'')+(on&&S.sort.d===-1?' de':'')+'" data-sort="'+k+'">'+l+'<svg class="ic si"><use href="#i-so"/></svg></th>'};
+  $('#tw').innerHTML='<table><thead><tr><th class="wc"><label class="cbx"><input type="checkbox" id="ckAll" aria-label="Seleccionar visibles"><span></span></label></th>'+th('name','Club')+th('country','País')+th('region','Región')+'<th>Instagram</th><th>WhatsApp</th><th class="wm">Maps</th>'+th('ready','Estado')+'<th class="wa"></th></tr></thead><tbody>'+list.map(function(c,i){return rowHTML(c,i,q,an)}).join('')+'</tbody></table>';
+  ckAll(list);
+ }
+}
+function ckAll(list){var e=$('#ckAll');if(!e)return;var n=list.filter(function(c){return S.sel[c.id]}).length;e.checked=list.length>0&&n===list.length;e.indeterminate=n>0&&n<list.length}
+function bulk(){
+ var n=Object.keys(S.sel).length;S.nsel=n;$('#bulk').hidden=!n;
+ if(n){var vis=view().filter(function(c){return S.sel[c.id]}).length;$('#bulkN').textContent=n+' seleccionado'+(n>1?'s':'');$('#bulkH').textContent=vis<n?'('+(n-vis)+' fuera de la vista)':''}
+ $('#nSelBtn').disabled=!n;$('#nSel').textContent=n||'—';
+}
+function sync(){
+ var q=$('#q');if(document.activeElement!==q&&q.value!==S.f.q)q.value=S.f.q;
+ $('#qClear').hidden=!S.f.q;$('#tgVer').setAttribute('aria-pressed',S.f.ver);
+ var sv=S.sort.k+':'+S.sort.d,sel=$('#sort'),has=false;
+ Array.prototype.forEach.call(sel.options,function(o){if(o.value===sv&&o.value!=='custom')has=true});
+ sel.querySelector('option[value=custom]').hidden=has;sel.value=has?sv:'custom';
+ $('#vTable').classList.toggle('on',S.view==='table');$('#vCards').classList.toggle('on',S.view==='cards');
+ document.body.classList.toggle('compact',S.dens==='compact');$('#dens').style.color=S.dens==='compact'?'var(--ball)':'';
+ var nf=[S.f.country!=='all',S.f.region!=='all',S.f.src!=='all',S.f.contact!=='all',S.f.ver,!!S.f.q].filter(Boolean).length;
+ $('#fBadge').hidden=!nf;$('#fBadge').textContent=nf;
+ $('#banner').hidden=!DB.prefs.banner;
+ $('#nView').textContent=view().length;$('#nAll').textContent=all().length;
+}
+function render(an){
+ selects();var list=view();
+ kpis();countries();presets();views();
+ $('#count').innerHTML='<b>'+list.length+'</b> de '+all().length+' clubes';
+ listRender(list,!!an&&!red);bulk();sync();first=false;
+}
+/* ---------- mutations ---------- */
+function del(ids){
+ var items=[];ids.forEach(function(id){var c=byId(id);if(c)items.push({c:c,added:DB.add.some(function(a){return a.id===id})})});
+ if(!items.length)return;
+ items.forEach(function(it){
+  if(it.added)DB.add=DB.add.filter(function(a){return a.id!==it.c.id});else if(DB.del.indexOf(it.c.id)<0)DB.del.push(it.c.id);
+  delete S.sel[it.c.id];if(S.drawer===it.c.id)closeD();
+ });
+ save();render();
+ toast('danger',items.length===1?'«'+items[0].c.name+'» eliminado':items.length+' clubes eliminados',{label:'Deshacer',fn:function(){
+  items.forEach(function(it){if(it.added)DB.add.push(it.c);else DB.del=DB.del.filter(function(d){return d!==it.c.id})});save();render();toast('success','Restaurado'+(items.length>1?'s':''))}});
+}
+/* ---------- drawer ---------- */
+var lastD=null;
+function tpl(c){return 'Hola, equipo de '+c.name+' 👋 Les escribo desde Tienda de Pádel (Panamá 🇵🇦). Distribuimos palas, pelotas, grips y accesorios de pádel para clubes y academias en Latinoamérica, con precios especiales por volumen. Nos encantaría ser su proveedor en '+c.city+'. ¿Con quién podemos conversar sobre catálogo y condiciones para clubes? ¡Gracias! 🎾'}
+function ficha(c){return c.name+'\nPaís: '+CM[c.country].name+'\nRegión: '+c.region+'\nCiudad: '+c.city+(c.addr?'\nDirección: '+c.addr:'')+'\nInstagram: '+(c.ig?'https://www.instagram.com/'+c.ig+'/':'pendiente')+(c.alt?'\nIG alternativo: https://www.instagram.com/'+c.alt+'/':'')+'\nWhatsApp: '+(c.wa?'+'+c.wa:'pendiente')+(c.ph?' (CSV traía placeholder +'+c.ph+', descartado)':'')+'\nMaps: '+mpU(c)+'\nFuente: '+srL(c)+(srU(c)?' · '+srU(c):'')+(c.csv?' + 2.csv':'')+'\nVerificado: '+(isV(c)?'Sí':'No')+(c.note?'\nNota: '+c.note:'')}
+function openD(id){
+ var c=byId(id);if(!c)return;S.drawer=id;lastD=document.activeElement;
+ var cc=CM[c.country],su=srU(c);
+ $('#db').innerHTML='<div class="band" style="background:linear-gradient(140deg,'+cc.color+'26,transparent 60%)">'+
+ '<div class="dm"><span class="cm">'+fl(c.country)+esc(cc.name)+'</span><span class="cm">· '+esc(c.region)+'</span>'+chipR(c)+'</div>'+
+ '<h2>'+esc(c.name)+' '+vm(c)+'</h2><div class="dloc">'+ic('pin')+esc(c.city)+'</div>'+(c.addr?'<div class="daddr">'+esc(c.addr)+'</div>':'')+
+ '<div class="dsrc">'+chipSrc(c)+(isV(c)?'<span class="rd listo">Verificado ✓</span>':'')+'</div></div>'+
+ (c.ph?'<div class="dsec">Alerta de datos</div><div class="wb">'+ic('al')+'<div><b>WhatsApp placeholder descartado.</b> El CSV traía <code>+'+esc(c.ph)+'</code>. No lo uses: abre el IG o la búsqueda y guarda el número real con ✏️.</div></div>':'')+
+ (c.alt?'<div class="wb">'+ic('al')+'<div><b>Conflicto de handles IG.</b> Excel: <code>@'+esc(c.ig)+'</code> · CSV: <code>@'+esc(c.alt)+'</code>. Confirma cuál está activo.</div></div>':'')+
+ '<div class="dsec">Enlaces directos</div>'+
+ '<a class="dl ig'+(c.ig?'':' pend')+'" href="'+igU(c)+'" target="_blank" rel="noopener">'+ic('ig')+'<div><small>Instagram</small><b>'+(c.ig?'@'+esc(c.ig):'Buscar perfil del club ↗')+'</b></div>'+ic('ext','width:12px;height:12px')+'</a>'+
+ (c.alt?'<a class="dl ig" href="https://www.instagram.com/'+esc(c.alt)+'/" target="_blank" rel="noopener">'+ic('ig')+'<div><small>IG alternativo (CSV)</small><b>@'+esc(c.alt)+'</b></div>'+ic('ext','width:12px;height:12px')+'</a>':'')+
+ '<a class="dl wa'+(c.wa?'':' pend')+'" href="'+waU(c)+'" target="_blank" rel="noopener">'+ic('wa')+'<div><small>WhatsApp</small><b>'+(c.wa?'+'+esc(c.wa):'Buscar número y verificar ↗')+'</b></div>'+ic('ext','width:12px;height:12px')+'</a>'+
+ '<a class="dl map" href="'+mpU(c)+'" target="_blank" rel="noopener">'+ic('pin')+'<div><small>Ubicación</small><b>Abrir en Google Maps</b></div>'+ic('ext','width:12px;height:12px')+'</a>'+
+ (su?'<a class="dl src" href="'+su+'" target="_blank" rel="noopener">'+ic('fl')+'<div><small>Fuente del registro</small><b>'+esc(srL(c))+' — abrir directorio</b></div>'+ic('ext','width:12px;height:12px')+'</a>':'')+
+ '<div class="dsec">Verificación manual</div><div class="swr"><div><b>Verificado por mí</b><small>Actívalo tras confirmar el club y sus contactos.</small></div><label class="sw"><input type="checkbox" id="dVer"'+(isV(c)?' checked':'')+'><i></i></label></div>'+
+ '<div class="dsec">Nota interna <span id="nSaved">Guardado ✓</span></div><textarea id="dNote" placeholder="Contacto clave, nº de canchas, marcas que usan…">'+esc(c.note)+'</textarea>'+
+ '<div class="dsec">Mensaje de prospección</div><textarea id="dTpl" readonly>'+esc(tpl(c))+'</textarea>'+
+ '<div class="tpa"><button class="btn sm" data-tc>'+ic('cp','width:12px;height:12px')+' Copiar mensaje</button>'+
+ (c.wa?'<a class="btn sm" style="color:var(--wa);border-color:rgba(74,222,128,.4)" href="https://wa.me/'+c.wa+'?text='+encodeURIComponent(tpl(c))+'" target="_blank" rel="noopener">'+ic('se','width:12px;height:12px')+' Enviar por WhatsApp</a>':'')+'</div>';
+ $('#drawer').classList.add('on');$('#dScrim').classList.add('on');lock();$('#dX').focus();
+}
+function closeD(){if(!S.drawer)return;S.drawer=null;$('#drawer').classList.remove('on');$('#dScrim').classList.remove('on');lock();if(lastD&&document.contains(lastD))lastD.focus()}
+/* ---------- modal ---------- */
+var lastM=null;
+function fillC(){$('#f-country').innerHTML='<option value="" disabled>Selecciona país…</option>'+C.map(function(c){return '<option value="'+c[0]+'">'+esc(c[1])+'</option>'}).join('')}
+function nIg(v){v=v.trim();var m=v.match(/instagram\.com\/([A-Za-z0-9._]{1,30})/i);return m?m[1]:v.replace(/^@/,'').replace(/\/+$/,'').replace(/\s+/,'')}
+function nWa(v,code){var d=v.replace(/\D/g,'');if(!d)return '';if(code&&d.indexOf(code)!==0&&d.length<=10)d=code+d;return d}
+function pv(){
+ var ig=nIg($('#f-ig').value),k=$('#f-country').value,code=CM[k]?CM[k].code:'',wa=nWa($('#f-wa').value,code);
+ $('#pvIg').textContent=ig?'→ instagram.com/'+ig:'Vacío → enlace de búsqueda del perfil';
+ $('#pvWa').textContent=wa?'→ wa.me/'+wa:(code?'Prefijo sugerido: +'+code:'Vacío → enlace de búsqueda');
+ $('#pvMaps').textContent=$('#f-maps').value.trim()?'→ enlace personalizado':'→ maps: "'+($('#f-name').value.trim()||'Club')+', '+($('#f-city').value.trim()||'Ciudad')+'"';
+ $('#regions').innerHTML=(CM[k]?CM[k].regions:[]).map(function(r){return '<option value="'+esc(r)+'">'}).join('');
+}
+function errs(){$$('#form .err').forEach(function(e){e.classList.remove('on');e.textContent=''});$$('#form .bad').forEach(function(e){e.classList.remove('bad')})}
+function err(i,s,m){i.classList.add('bad');var e=$(s);e.textContent=m;e.classList.add('on')}
+function openM(mode,id){
+ S.edit=mode==='edit'?id:null;lastM=document.activeElement;errs();fillC();
+ var c=id?byId(id):null;
+ $('#mTitle').innerHTML=ic(mode==='edit'?'pen':'plus')+'<span>'+(mode==='edit'?'Editar club':'Añadir club')+'</span>';
+ $('#f-name').value=c?c.name:'';$('#f-country').value=c?c.country:'';$('#f-region').value=c?c.region:'';$('#f-city').value=c?c.city:'';$('#f-addr').value=c?c.addr:'';
+ $('#f-ig').value=c&&c.ig?'@'+c.ig:'';$('#f-wa').value=c&&c.wa?'+'+c.wa:'';$('#f-maps').value=c?c.maps:'';$('#f-note').value=c?c.note:'';
+ pv();$('#modal').hidden=false;lock();$('#f-name').focus();
+}
+function closeM(){$('#modal').hidden=true;S.edit=null;lock();if(lastM&&document.contains(lastM))lastM.focus()}
+function submit(e){
+ e.preventDefault();errs();
+ var name=$('#f-name').value.trim(),country=$('#f-country').value,city=$('#f-city').value.trim(),region=$('#f-region').value.trim()||'—',addr=$('#f-addr').value.trim();
+ var ig=nIg($('#f-ig').value),code=CM[country]?CM[country].code:'',wa=nWa($('#f-wa').value,code),maps=$('#f-maps').value.trim(),bad=null;
+ if(name.length<3){err($('#f-name'),'#e-name','Escribe el nombre del club (mín. 3 caracteres).');bad=bad||$('#f-name')}
+ if(!country){$('#f-country').classList.add('bad');bad=bad||$('#f-country')}
+ if(!city){err($('#f-city'),'#e-city','La ciudad es obligatoria.');bad=bad||$('#f-city')}
+ if(ig&&!/^[A-Za-z0-9._]{1,30}$/.test(ig)){err($('#f-ig'),'#e-ig','Handle inválido.');bad=bad||$('#f-ig')}
+ if($('#f-wa').value.trim()&&(wa.length<8||wa.length>15)){err($('#f-wa'),'#e-wa','Incluye el prefijo del país (8–15 dígitos).');bad=bad||$('#f-wa')}
+ if($('#f-wa').value.trim()&&/(.)\1{5}/.test(wa)){err($('#f-wa'),'#e-wa','Parece placeholder (dígitos repetidos). Verifica el número real.');bad=bad||$('#f-wa')}
+ if(maps&&!/^https?:\/\//i.test(maps)){err($('#f-maps'),'#e-maps','Pega un URL válido o déjalo vacío.');bad=bad||$('#f-maps')}
+ if(bad){bad.focus();return}
+ var data={name:name,country:country,region:region,city:city,addr:addr,ig:ig,wa:wa,maps:maps,note:$('#f-note').value.trim()},id;
+ if(S.edit){id=S.edit;var ai=-1;DB.add.forEach(function(a,i){if(a.id===id)ai=i});if(ai>=0)DB.add[ai]=Object.assign({},DB.add[ai],data);else ov(id,data);toast('success','«'+name+'» actualizado')}
+ else{id='u'+Date.now();DB.add.push(Object.assign({id:id,src:'manual',csv:0,ph:'',alt:''},data));toast('success','«'+name+'» añadido al directorio')}
+ save();closeM();render();
+ if(view().some(function(c){return c.id===id})){requestAnimationFrame(function(){var el=document.querySelector('[data-id="'+id+'"]');if(el){el.scrollIntoView({block:'nearest',behavior:red?'auto':'smooth'});el.classList.add('flash');setTimeout(function(){el.classList.remove('flash')},1400)}})}
+ else toast('info','El club quedó fuera de la vista actual',{label:'Ver ficha',fn:function(){resetF();openD(id)}});
+}
+/* ---------- confirm / lock ---------- */
+var cfFn=null,lastC=null;
+function ask(t,fn){cfFn=fn;lastC=document.activeElement;$('#cfText').textContent=t;$('#cf').hidden=false;lock();$('#cfNo').focus()}
+function closeC(){$('#cf').hidden=true;cfFn=null;lock();if(lastC&&document.contains(lastC))lastC.focus()}
+function lock(){var o=S.drawer||!$('#modal').hidden||!$('#cf').hidden||document.body.classList.contains('sheet');document.body.classList.toggle('lock',!!o)}
+function trap(box,e){
+ if(e.key!=='Tab')return;
+ var f=Array.prototype.filter.call(box.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select,textarea'),function(el){return el.offsetParent!==null});
+ if(!f.length)return;var a=f[0],b=f[f.length-1];
+ if(e.shiftKey&&document.activeElement===a){e.preventDefault();b.focus()}else if(!e.shiftKey&&document.activeElement===b){e.preventDefault();a.focus()}
+}
+function resetF(){S.f=Object.assign({},EMPTY);$('#q').value='';render(true)}
+function closeSheet(){document.body.classList.remove('sheet');$('#sheetScrim').classList.remove('on');lock()}
+function applyPre(p){S.f=Object.assign({},EMPTY,p.f);$('#q').value='';closeSheet();render(true);toast('info','Vista «'+p.n+'» aplicada')}
+/* ---------- events ---------- */
+function wire(){
+ var qt;$('#q').addEventListener('input',function(){clearTimeout(qt);qt=setTimeout(function(){S.f.q=$('#q').value.trim();render()},120)});
+ $('#qClear').onclick=function(){S.f.q='';$('#q').value='';render();$('#q').focus()};
+ $('#addBtn').onclick=function(){openM('add')};
+ $('#queueBtn').onclick=function(){applyPre(PRE[4]);location.hash='#clubes'};
+ $('#expBtn').onclick=function(e){e.stopPropagation();var m=$('#expMenu');m.hidden=!m.hidden;$('#expBtn').setAttribute('aria-expanded',String(!m.hidden))};
+ $('#expMenu').onclick=function(e){var b=e.target.closest('[data-exp]');if(!b||b.disabled)return;var p=b.dataset.exp.split('-');$('#expMenu').hidden=true;doExport(p[0],p[1])};
+ document.addEventListener('click',function(e){if(!e.target.closest('.ew')){$('#expMenu').hidden=true;$('#expBtn').setAttribute('aria-expanded','false')}});
+ var cc=function(e){var b=e.target.closest('[data-country]');if(b){S.f.country=b.dataset.country;S.f.region='all';render(true)}};
+ $('#countries').onclick=cc;$('#rail').onclick=cc;$('#dist').onclick=cc;
+ $('#region').onchange=function(){S.f.region=this.value;render(true)};
+ $('#src').onchange=function(){S.f.src=this.value;render(true)};
+ $('#contact').onchange=function(){S.f.contact=this.value;render(true)};
+ $('#tgVer').onclick=function(){S.f.ver=!S.f.ver;render(true)};
+ $('#veP').onclick=function(){S.f.ver=!S.f.ver;render(true)};
+ $('#waP').onclick=function(){S.f.contact=S.f.contact==='listo'?'all':'listo';render(true)};
+ $('#presets').onclick=function(e){var b=e.target.closest('[data-pre]');if(!b)return;var p=PRE.filter(function(x){return x.id===b.dataset.pre})[0];if(!p)return;
+  var on=Object.keys(p.f).every(function(k){return S.f[k]===p.f[k]});on?resetF():applyPre(p)};
+ $('#reset').onclick=resetF;$('#emptyX').onclick=resetF;
+ $('#vsBtn').onclick=function(){$('#vsRow').hidden=false;$('#vName').focus()};
+ $('#vNo').onclick=function(){$('#vsRow').hidden=true;$('#vName').value=''};
+ $('#vOk').onclick=function(){var n=$('#vName').value.trim();if(!n){$('#vName').focus();return}
+  DB.views.push({id:'v'+Date.now(),name:n,f:Object.assign({},S.f),sort:Object.assign({},S.sort)});save();$('#vName').value='';$('#vsRow').hidden=true;views();toast('success','Vista «'+n+'» guardada')};
+ $('#vName').addEventListener('keydown',function(e){if(e.key==='Enter'){e.preventDefault();$('#vOk').click()}if(e.key==='Escape'){$('#vsRow').hidden=true;e.stopPropagation()}});
+ $('#views').onclick=function(e){var d=e.target.closest('[data-vdel]');
+  if(d){DB.views=DB.views.filter(function(v){return v.id!==d.dataset.vdel});save();views();toast('info','Vista eliminada');return}
+  var a=e.target.closest('[data-view]');if(a){var v=DB.views.filter(function(x){return x.id===a.dataset.view})[0];if(v){S.f=Object.assign({},EMPTY,v.f);S.sort=Object.assign({},v.sort);$('#q').value=S.f.q;closeSheet();render(true);toast('info','Vista «'+v.name+'» aplicada')}}};
+ $('#sort').onchange=function(){if(this.value==='custom')return;var p=this.value.split(':');S.sort={k:p[0],d:+p[1]};render()};
+ $('#dens').onclick=function(){S.dens=S.dens==='cozy'?'compact':'cozy';DB.prefs.dens=S.dens;save();sync()};
+ $('#vTable').onclick=function(){S.view='table';DB.prefs.view='table';save();render(true)};
+ $('#vCards').onclick=function(){S.view='cards';DB.prefs.view='cards';save();render(true)};
+ $('#fBtn').onclick=function(){document.body.classList.add('sheet');$('#sheetScrim').classList.add('on');lock()};
+ $('#sheetX').onclick=closeSheet;$('#sheetScrim').onclick=closeSheet;
+ $('#bannerX').onclick=function(){DB.prefs.banner=0;save();$('#banner').hidden=true};
+ $('#bulkNo').onclick=function(){S.sel={};render()};
+ $('#bulkDel').onclick=function(){del(Object.keys(S.sel))};
+ $('#bulkExp').onclick=function(){doExport('sel','xlsx')};
+ var area=$('#list');
+ area.addEventListener('click',function(e){
+  var th=e.target.closest('th[data-sort]');if(th){var k=th.dataset.sort;if(S.sort.k===k)S.sort.d*=-1;else S.sort={k:k,d:1};render();return}
+  if(e.target.closest('#ckAll'))return;
+  var ed=e.target.closest('[data-edit]');if(ed){openM('edit',ed.dataset.edit);return}
+  var dl2=e.target.closest('[data-del]');if(dl2){del([dl2.dataset.del]);return}
+  var ct=e.target.closest('.cty[data-country]');if(ct){S.f.country=ct.dataset.country;S.f.region='all';render(true);return}
+  var rg=e.target.closest('[data-region]');if(rg){S.f.region=rg.dataset.region;render(true);return}
+  var op=e.target.closest('[data-open]');if(op){openD(op.dataset.open);return}
+  if(e.target.closest('a,button,input,label,select'))return;
+  var row=e.target.closest('[data-id]');if(row)openD(row.dataset.id);
+ });
+ area.addEventListener('change',function(e){
+  if(e.target.id==='ckAll'){var l=view();l.forEach(function(c){if(e.target.checked)S.sel[c.id]=1;else delete S.sel[c.id]});render();return}
+  var cb=e.target.closest('[data-check]');
+  if(cb){if(cb.checked)S.sel[cb.dataset.check]=1;else delete S.sel[cb.dataset.check];var r=cb.closest('[data-id]');if(r)r.classList.toggle('sel',cb.checked);bulk();ckAll(view())}
+ });
+ $('#dX').onclick=closeD;$('#dScrim').onclick=closeD;
+ $('#drawer').addEventListener('keydown',function(e){trap($('#drawer'),e)});
+ $('#db').addEventListener('click',function(e){if(e.target.closest('[data-tc]')){var t=$('#dTpl');if(t)copy(t.value,'Mensaje de prospección copiado')}});
+ $('#db').addEventListener('change',function(e){if(e.target.id==='dVer'&&S.drawer){ov(S.drawer,{verified:e.target.checked});render();toast('success',e.target.checked?'Club verificado ✓':'Verificación retirada')}});
+ var nt;$('#db').addEventListener('input',function(e){if(e.target.id==='dNote'&&S.drawer){var v=e.target.value;clearTimeout(nt);nt=setTimeout(function(){if(!S.drawer)return;ov(S.drawer,{note:v});render();var s=$('#nSaved');if(s){s.classList.add('on');setTimeout(function(){s.classList.remove('on')},1500)}},420)}});
+ $('.df').addEventListener('click',function(e){if(!S.drawer)return;var id=S.drawer;
+  if(e.target.closest('[data-de]')){closeD();openM('edit',id)}
+  else if(e.target.closest('[data-dc]')){var c=byId(id);if(c)copy(ficha(c),'Ficha copiada — lista para tu CRM')}
+  else if(e.target.closest('[data-dd]'))del([id])});
+ $('#form').addEventListener('submit',submit);
+ $('#mNo').onclick=closeM;$('#mX').onclick=closeM;
+ $('#modal').addEventListener('click',function(e){if(e.target===$('#modal'))closeM()});
+ $('#modal').addEventListener('keydown',function(e){trap($('#modal'),e)});
+ $('#f-country').addEventListener('change',pv);
+ ['f-name','f-city','f-ig','f-wa','f-maps'].forEach(function(id){$('#'+id).addEventListener('input',pv)});
+ $('#f-ig').addEventListener('blur',function(){var v=nIg(this.value);this.value=v?'@'+v:'';pv()});
+ $('#f-wa').addEventListener('blur',function(){var k=$('#f-country').value,d=nWa(this.value,CM[k]?CM[k].code:'');this.value=d?'+'+d:'';pv()});
+ $('#cfOk').onclick=function(){var f=cfFn;closeC();if(f)f()};
+ $('#cfNo').onclick=closeC;
+ $('#cf').addEventListener('click',function(e){if(e.target===$('#cf'))closeC()});
+ $('#cf').addEventListener('keydown',function(e){trap($('#cf'),e)});
+ $('#restore').onclick=function(){ask('Se eliminarán tus verificaciones, ediciones, notas y vistas guardadas en este navegador y volverá el consolidado original de 108 clubes. ¿Continuar?',function(){try{localStorage.removeItem(KEY)}catch(e){}location.reload()})};
+ document.addEventListener('keydown',function(e){
+  var typing=/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName);
+  if((e.key==='/'&&!typing)||((e.ctrlKey||e.metaKey)&&e.key.toLowerCase()==='k')){e.preventDefault();$('#q').focus();$('#q').select();return}
+  if(e.key==='Escape'){
+   if(!$('#cf').hidden){closeC();return}
+   if(!$('#modal').hidden){closeM();return}
+   if(S.drawer){closeD();return}
+   if(!$('#expMenu').hidden){$('#expMenu').hidden=true;return}
+   if(document.body.classList.contains('sheet')){closeSheet();return}
+   if(document.activeElement===$('#q')&&S.f.q){S.f.q='';$('#q').value='';render()}
+  }
+ });
+ var tick=false;
+ var onScroll=function(){if(tick)return;tick=true;requestAnimationFrame(function(){
+  $('#top').classList.toggle('sc',window.scrollY>8);
+  if(!red)$('#court').style.transform='translateY('+Math.min(window.scrollY*.15,110)+'px) rotate(-8deg)';
+  if(window.innerHeight+window.scrollY>=document.documentElement.scrollHeight-60)spy('notas');
+  tick=false})};
+ window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+ if('IntersectionObserver' in window){
+  var ob=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting)spy(en.target.id)})},{rootMargin:'-35% 0px -55% 0px'});
+  ['resumen','clubes','notas'].forEach(function(id){var el=document.getElementById(id);if(el)ob.observe(el)});
+ }
+ var mql=function(){closeSheet();render()};
+ if(mq.addEventListener)mq.addEventListener('change',mql);else if(mq.addListener)mq.addListener(mql);
+}
+function spy(id){$$('.nav a').forEach(function(a){a.classList.toggle('on',a.dataset.spy===id)})}
+/* ---------- boot ---------- */
+try{
+ $('#leg').innerHTML=C.map(function(c){return '<span><i style="background:'+c[3]+'"></i>'+esc(c[2])+'</span>'}).join('');
+ wire();render(true);
+ requestAnimationFrame(function(){document.body.classList.add('ready')});
+ window.__padelOK=true;
+}catch(err){
+ window.__padelOK=false;
+ try{window.__padelFail(err)}catch(e2){}
+}
+})();
+</script>
+
+<script>
+/* Vigilante de arranque: si la vista interactiva no pinta, muestra igualmente los 108 clubes. */
+(function(){
+ function basic(){
+  var C=window.PADEL_C,D=window.PADEL_D;if(!C||!D)return;
+  var M={};C.forEach(function(c){M[c[0]]=c[1]});
+  var e=function(s){return String(s==null?'':s).replace(/[&<>"']/g,function(m){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]})};
+  var rows=D.map(function(r){
+   var x=r[9]||{},ig=r[6],wa=r[7],name=r[1],city=r[4],addr=r[5],cty=M[r[2]]||r[2];
+   var igU=ig?'https://www.instagram.com/'+ig+'/':'https://www.google.com/search?q='+encodeURIComponent('site:instagram.com '+name+' pádel '+city);
+   var waU=wa?'https://wa.me/'+wa:'https://www.google.com/search?q='+encodeURIComponent('"'+name+'" '+city+' WhatsApp pádel');
+   var mp=x.maps||'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(name+', '+(addr||city)+', '+cty);
+   return '<tr><td><b>'+e(name)+'</b><div style="color:#8296B6;font-size:11px">'+e(city)+(addr?' · '+e(addr):'')+'</div></td><td>'+e(cty)+'</td><td>'+e(r[3])+'</td>'+
+   '<td><a href="'+igU+'" target="_blank" rel="noopener" style="color:#FF7BC0">'+(ig?'@'+e(ig):'Buscar perfil')+'</a></td>'+
+   '<td><a href="'+waU+'" target="_blank" rel="noopener" style="color:#4ADE80">'+(wa?'+'+e(wa):'Buscar número')+'</a></td>'+
+   '<td><a href="'+mp+'" target="_blank" rel="noopener">Maps</a></td></tr>';
+  }).join('');
+  var tw=document.getElementById('tw');
+  if(tw){tw.hidden=false;tw.style.maxHeight='none';tw.innerHTML='<table><thead><tr><th>Club</th><th>País</th><th>Región</th><th>Instagram</th><th>WhatsApp</th><th>Maps</th></tr></thead><tbody>'+rows+'</tbody></table>'}
+  var b=document.getElementById('boot');if(b)b.hidden=false;
+  var l=document.getElementById('loadTxt');if(l)l.textContent=D.length+' clubes (modo seguro)';
+  var bt=document.getElementById('bigTotal');if(bt)bt.textContent=D.length;
+  var cw=document.getElementById('cw');if(cw)cw.hidden=true;
+  var em=document.getElementById('empty');if(em)em.hidden=true;
+ }
+ function csv(){
+  var D=window.PADEL_D,C=window.PADEL_C,M={};C.forEach(function(c){M[c[0]]=c[1]});
+  var head=['Club','País','Región','Ciudad','Dirección','Instagram','WhatsApp','Maps','Fuente'];
+  var lines=[head].concat(D.map(function(r){var x=r[9]||{};return [r[1],M[r[2]]||r[2],r[3],r[4],r[5],r[6]?'@'+r[6]:'',r[7]?'+'+r[7]:'',x.maps||'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(r[1]+', '+r[4]+', '+M[r[2]]),r[8]]}));
+  var txt='\uFEFF'+lines.map(function(l){return l.map(function(v){return '"'+String(v==null?'':v).replace(/"/g,'""')+'"'}).join(',')}).join('\r\n');
+  var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'text/csv;charset=utf-8'}));a.download='padel-atlas-latam.csv';document.body.appendChild(a);a.click();a.remove();
+ }
+ window.__padelFail=basic;
+ var btn=document.getElementById('bootCsv');if(btn)btn.onclick=csv;
+ setTimeout(function(){
+  var painted=document.querySelector('#tw tbody tr')||document.querySelector('#cw .card');
+  if(!painted)basic();
+ },1200);
+})();
+</script>
+</body>
+</html>
